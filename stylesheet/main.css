@@ -1,0 +1,95 @@
+html body {
+    background-color : black;
+    height : 100vh;
+    padding : 0;
+    margin : 0;
+    background-size : 100%;
+    color: white;
+}
+
+h1, h2, h3 {
+    display : inline;
+}
+
+/**********MAIN**********/
+/**********MAIN**********/
+#main {
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+    padding: 1vh;
+    display: block;
+    min-height: 70vh;
+    position: relative;
+}
+
+
+#main::after {
+    content: "";
+    background-image: url("../resources/swirl_pattern.png");
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+#main section{
+    padding : 50px;
+}
+
+
+/**********HEADER**********/
+/**********HEADER**********/
+header {
+    background: black url("../resources/ban1.png") no-repeat;
+    background-size: 100%;
+    display : block;
+    height: 30vh;
+}
+
+header nav {
+    transition: 0.5s;
+    display : block;
+    background-color : black;
+    opacity : 0.5;
+    padding : 15px;
+}
+
+header nav:hover {
+    opacity : 0.9;
+}
+
+header nav h2 {
+    font-family: "Alice in Wonderland";
+    width : 30%;
+    text-align : left;
+}
+
+header nav span {
+    transition : 0.5s;
+    width : 30%;
+    padding-right : 10px;
+    text-align:right;
+    float : right;
+}
+
+header nav span:hover {
+    color : burlywood;
+}
+
+
+/**********FOOTER**********/
+/**********FOOTER**********/
+footer {
+    opacity: 0.9;
+    padding : 10px;
+    background-color : black;
+    display : block;
+    height: 5vh;
+}
+
+footer p {
+    text-align : center;
+}
