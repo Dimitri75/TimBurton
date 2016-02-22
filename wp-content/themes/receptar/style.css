@@ -203,10 +203,10 @@
 		h1, h2, h3, h4, h5, h6,
 		.h1, .h2, .h3, .h4, .h5, .h6,
 		.entry-category,
-		.entry-title .entry-edit { font-family: 'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+		.entry-title .entry-edit { font-family: 'Calibri', 'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 		h1, .h1,
-		blockquote { font-family: 'Alegreya', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+		blockquote { font-family: 'Calibri', 'Alegreya', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 
 
