@@ -71,6 +71,10 @@ header nav {
     padding : 15px;
 }
 
+header a {
+    color : white;
+}
+
 header nav:hover {
     opacity : 0.9;
 }
