@@ -13,19 +13,21 @@
             <nav>
 
                 <?php if(!isset($_SESSION['login'])){ ?>
-                <a href="?main">
-                    <h2>Timothy Walter Button</h2>
-                </a>
-                <a href="?admin_connection">
-                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"><b> Connexion</b></span>
-                </a>
-                <?php }else{ ?>
-                    <a href="?admin_userTable">
+                    <a href="?main">
                         <h2>Timothy Walter Button</h2>
                     </a>
-                    <a href="?admin_deconnection">
-                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"><b> D&eacute;connexion</b></span>
+                    <a href="?admin_signin">
+                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"><b> Connexion</b></span>
                     </a>
+                <?php }
+
+                else { ?>
+                        <a href="?admin_userTable">
+                            <h2>Timothy Walter Button</h2>
+                        </a>
+                        <a href="?admin_disconnection">
+                            <span class="glyphicon glyphicon-log-out" aria-hidden="true"><b> Déconnexion</b></span>
+                        </a>
                 <?php } ?>
 
             </nav>

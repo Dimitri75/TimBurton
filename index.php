@@ -10,17 +10,17 @@
         case "/web/":
             include_once "views/main.php";
             break;
-        case "/web/?admin_connection":
-            include_once "views/admin_connection.php";
-            break;
-        case "/web/?admin_connect":
-            include_once "controllers/admin_connect.php";
-            break;
         case "/web/?admin_userTable":
             include_once "views/admin_userTable.php";
             break;
-        case "/web/?admin_deconnection";
-            include_once "controllers/admin_deconnect.php";
+        case "/web/?admin_signin":
+            include_once "views/admin_signin.php";
+            break;
+        case "/web/?admin_connection":
+            include_once "controllers/admin_connection.php";
+            break;
+        case "/web/?admin_disconnection";
+            include_once "controllers/admin_disconnection.php";
         default:
             include_once "views/main.php";
             break;
