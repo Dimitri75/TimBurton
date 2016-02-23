@@ -20,12 +20,31 @@
         }
     }
     else {
-        switch($uri){
-            case "/web/?admin_disconnection";
-                include_once "controllers/admin_disconnection.php";
-            default:
-                include_once "views/admin_userTable.php";
-                break;
+        if (isset($_GET['action'])){
+            switch($_GET['action']){
+                case "delete_user":
+                    include_once "controllers/delete_user.php";
+                    break;
+                case "update_user":
+                    include_once "controllers/delete_user.php";
+                    break;
+                default:
+                    include_once "views/admin_userTable.php";
+                    break;
+            }
+        }
+        else {
+            switch ($uri) {
+                case "/web/?admin_disconnection":
+                    include_once "controllers/admin_disconnection.php";
+                    break;
+                case "/web/?create_user":
+                    include_once "controllers/create_user.php";
+                    break;
+                default:
+                    include_once "views/admin_userTable.php";
+                    break;
+            }
         }
     }
 
