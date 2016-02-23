@@ -7,19 +7,19 @@
     $uri = $_SERVER['REQUEST_URI'];
 
     switch($uri){
-        case "/":
+        case "/web/":
             include_once "views/main.php";
             break;
-        case "/?admin_connection":
+        case "/web/?admin_connection":
             include_once "views/admin_connection.php";
             break;
-        case "/?admin_connect":
+        case "/web/?admin_connect":
             include_once "controllers/admin_connect.php";
             break;
-        case "/?admin_userTable":
+        case "/web/?admin_userTable":
             include_once "views/admin_userTable.php";
             break;
-        case "/?admin_deconnection";
+        case "/web/?admin_deconnection";
             include_once "controllers/admin_deconnect.php";
         default:
             include_once "views/main.php";

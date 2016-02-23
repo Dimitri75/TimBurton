@@ -8,5 +8,5 @@
 
 
 unset($_SESSION['login']);
-header('Location: /?main');
+header('Location: ?main');
 

@@ -11,18 +11,22 @@
     <body>
         <header>
             <nav>
-                <a href="/web">
-                    <h2>Timothy Walter Button</h2>
-                </a>
 
                 <?php if(!isset($_SESSION['login'])){ ?>
-                    <a href="?admin_connection">
-                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"><b> Connexion</b></span>
+                <a href="?main">
+                    <h2>Timothy Walter Button</h2>
+                </a>
+                <a href="?admin_connection">
+                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"><b> Connexion</b></span>
+                </a>
                 <?php }else{ ?>
+                    <a href="?admin_userTable">
+                        <h2>Timothy Walter Button</h2>
+                    </a>
                     <a href="?admin_deconnection">
                         <span class="glyphicon glyphicon-log-out" aria-hidden="true"><b> D&eacute;connexion</b></span>
+                    </a>
                 <?php } ?>
 
-                </a>
             </nav>
         </header>

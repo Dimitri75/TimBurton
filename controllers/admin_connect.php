@@ -22,6 +22,6 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
     }
 
     if($trouve) {
-        header('Location: /?admin_userTable');
+        header('Location: ?admin_userTable');
     }
 }

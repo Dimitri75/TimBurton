@@ -3,7 +3,7 @@
         <h3>Connexion administrateurs</h3>
         <br/><br/>
 
-        <form method="post" action="/?admin_connect">
+        <form method="post" action="?admin_connect">
             <table>
                 <tr>
                     <td>Identifiant</td>
