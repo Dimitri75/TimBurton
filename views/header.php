@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <link rel="stylesheet" href="stylesheet/main.css">
-        <link rel="icon" type="image/png" href="resources/favicon.png" />
+        <link rel="stylesheet" href="/timburton/stylesheet/main.css">
+        <link rel="icon" type="image/png" href="/timburton/resources/favicon.png" />
         <title>8INF830 - Tim Burton</title>
     </head>
 
