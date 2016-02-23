@@ -1,15 +1,13 @@
 <?php
 
-    $root = "/web/";
-
     session_start();
     include_once "pdo.php";
-    include_once "header.html";
+    include_once "header.php";
 
     $uri = $_SERVER['REQUEST_URI'];
 
     switch($uri){
-        case $root:
+        case "/":
             include_once "views/main.php";
             break;
         case "/?admin_connection":
@@ -21,6 +19,8 @@
         case "/?admin_userTable":
             include_once "views/admin_userTable.php";
             break;
+        case "/?admin_deconnection";
+            include_once "controllers/admin_deconnect.php";
         default:
             include_once "views/main.php";
             break;

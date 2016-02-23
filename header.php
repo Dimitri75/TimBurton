@@ -15,8 +15,14 @@
                     <h2>Timothy Walter Button</h2>
                 </a>
 
-                <a href="?admin_connection">
-                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"><b> Connexion</b></span>
+                <?php if(!isset($_SESSION['login'])){ ?>
+                    <a href="?admin_connection">
+                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"><b> Connexion</b></span>
+                <?php }else{ ?>
+                    <a href="?admin_deconnection">
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"><b> D&eacute;connexion</b></span>
+                <?php } ?>
+
                 </a>
             </nav>
         </header>

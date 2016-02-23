@@ -16,10 +16,12 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
     $trouve = false;
     while ($trouve == false && ($data = $result->fetch())) {
         if ($data['login'] == $_POST['login'] && $data['password'] == $_POST['password']) {
+            $_SESSION['login'] = $data['login'];
             $trouve = true;
         }
     }
 
-    if($trouve)
+    if($trouve) {
         header('Location: /?admin_userTable');
+    }
 }
