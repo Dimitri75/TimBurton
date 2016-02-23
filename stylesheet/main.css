@@ -11,6 +11,14 @@ h1, h2, h3 {
     display : inline;
 }
 
+table tr td {
+    padding : 5px;
+}
+
+input {
+    color : black;
+}
+
 /**********MAIN**********/
 /**********MAIN**********/
 #main {

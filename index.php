@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet/main.css">
     <title>8INF830 - Tim Burton</title>
-
-
 </head>
 
 <body>
@@ -20,7 +18,9 @@
 
     <div id="main">
         <section>
-            Hello world !
+            <?php
+                include_once "pages/admin_connection.php";
+            ?>
         </section>
     </div>
 
