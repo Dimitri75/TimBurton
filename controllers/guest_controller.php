@@ -6,7 +6,7 @@
                 include_once "views/show_film.php";
                 break;
             default:
-                include_once "views/admin_userTable.php";
+                include_once "views/admin_table.php";
                 break;
         }
     }

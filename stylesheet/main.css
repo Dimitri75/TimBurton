@@ -99,14 +99,20 @@ figcaption {
     opacity: 0.8;
 }
 
-#main section ul li figcaption {
-    list-style : none;
+#main section ul {
+    list-style: none;
     display : inline-block;
 }
 
+#main section.left{
+    width : 49.8%;
+    float : left;
+}
 
-
-
+#main section.right{
+    width : 49.8%;
+    float : right;
+}
 
 
 /**********HEADER**********/

@@ -22,49 +22,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/index.php">
+      <file leaf-file-name="admin_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6153846">
-              <caret line="4" column="27" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_connection.php" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/admin_connection.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.115385">
-              <caret line="17" column="23" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="23" />
+            <state vertical-scroll-proportion="-21.653847">
+              <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
               <folding>
-                <marker date="1456256443418" expanded="true" signature="123:141" placeholder="SELECT * fro... user" />
-                <marker date="1456256443418" expanded="true" signature="129:141" placeholder="select * fro... user" />
+                <marker date="1456269616531" expanded="true" signature="336:354" placeholder="SELECT * fro... user" />
+                <marker date="1456269616531" expanded="true" signature="429:573" placeholder="..." />
+                <marker date="1456269616531" expanded="true" signature="429:608" placeholder="..." />
+                <marker date="1456269616531" expanded="true" signature="429:609" placeholder="..." />
+                <marker date="1456269616531" expanded="true" signature="429:742" placeholder="..." />
+                <marker date="1456269616531" expanded="true" signature="429:900" placeholder="..." />
+                <marker date="1456269616531" expanded="true" signature="2075:2093" placeholder="SELECT * fro... film" />
+                <marker date="1456269616531" expanded="true" signature="2168:2797" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
-        <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/main.php">
+      <file leaf-file-name="create_film.php" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/create_film.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.03912543">
-              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show_film.php" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/show_film.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769">
-              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+            <state vertical-scroll-proportion="-10.461538">
+              <caret line="16" column="72" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
               <folding>
-                <marker date="1456257486660" expanded="true" signature="142:181" placeholder="SELECT * FRO... film" />
-                <marker date="1456257486660" expanded="true" signature="150:181" placeholder="DELETE FROM " />
-                <marker date="1456257486660" expanded="true" signature="353:549" placeholder="..." />
-                <marker date="1456257486660" expanded="true" signature="577:578" placeholder="..." />
+                <marker date="1456271081956" expanded="true" signature="588:697" placeholder="INSERT INTO film... " />
               </folding>
             </state>
           </provider>
@@ -73,8 +56,8 @@
       <file leaf-file-name="gallery.php" pinned="false" current-in-tab="false">
         <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/gallery.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769">
-              <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+            <state vertical-scroll-proportion="-7.1923075">
+              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
               <folding>
                 <marker date="1456256443426" expanded="true" signature="216:234" placeholder="SELECT * fro... film" />
                 <marker date="1456256443426" expanded="true" signature="416:766" placeholder="..." />
@@ -93,31 +76,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.html" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/footer.html">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+        <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/stylesheet/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9230769">
-              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.41516244">
+              <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6923077">
-              <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
-              <folding>
-                <marker date="1456259048683" expanded="true" signature="800:841" placeholder="..." />
-                <marker date="1456259048683" expanded="true" signature="800:868" placeholder="..." />
-                <marker date="1456259048683" expanded="true" signature="800:882" placeholder="..." />
-                <marker date="1456259048683" expanded="true" signature="800:887" placeholder="..." />
-                <marker date="1456259048683" expanded="true" signature="1431:1472" placeholder="..." />
-                <marker date="1456259048683" expanded="true" signature="1431:1500" placeholder="..." />
-                <marker date="1456259048683" expanded="true" signature="1431:1514" placeholder="..." />
-                <marker date="1456259048683" expanded="true" signature="1431:1519" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -158,15 +122,20 @@
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/web/index.php" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/web/stylesheet/main.css" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/header.php" />
-        <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_userTable.php" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/show_film.php" />
-        <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/stylesheet/main.css" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/nav/admin_menu.php" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/nav/guest_menu.php" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/pdo.php" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/index.php" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/header.php" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/main.php" />
+        <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_userTable.php" />
+        <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/delete_film.php" />
+        <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/create_user.php" />
+        <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/admin_controller.php" />
+        <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_table.php" />
+        <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/create_film.php" />
+        <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/stylesheet/main.css" />
       </list>
     </option>
   </component>
@@ -182,10 +151,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -239,6 +207,48 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="timburton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="timburton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="timburton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -248,10 +258,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js-jscs-nodeInterpreter" value="D:\DEV\NODEJS\NODEJS\node.exe" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Program Files (x86)\EasyPHP-Devserver-16.1\eds-www\timburton\controllers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Program Files (x86)\EasyPHP-Devserver-16.1\eds-www\timburton\views" />
       <recent name="C:\Program Files (x86)\EasyPHP-Devserver-16.1\eds-www\timburton\models" />
@@ -312,10 +325,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17963752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28884026" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -424,17 +437,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_userTable.php">
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <marker date="1456256770233" expanded="true" signature="323:341" placeholder="SELECT * fro... user" />
-            <marker date="1456256770233" expanded="true" signature="416:560" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:595" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:596" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:729" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:887" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="336:354" placeholder="SELECT * fro... user" />
+            <marker date="1456269616531" expanded="true" signature="429:573" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:608" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:609" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:742" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:900" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="2075:2093" placeholder="SELECT * fro... film" />
+            <marker date="1456269616531" expanded="true" signature="2168:2797" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -480,17 +495,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_userTable.php">
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="23" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <marker date="1456256770233" expanded="true" signature="323:341" placeholder="SELECT * fro... user" />
-            <marker date="1456256770233" expanded="true" signature="416:560" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:595" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:596" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:729" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:887" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="336:354" placeholder="SELECT * fro... user" />
+            <marker date="1456269616531" expanded="true" signature="429:573" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:608" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:609" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:742" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:900" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="2075:2093" placeholder="SELECT * fro... film" />
+            <marker date="1456269616531" expanded="true" signature="2168:2797" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -560,17 +577,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_userTable.php">
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="23" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <marker date="1456256770233" expanded="true" signature="323:341" placeholder="SELECT * fro... user" />
-            <marker date="1456256770233" expanded="true" signature="416:560" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:595" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:596" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:729" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:887" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="336:354" placeholder="SELECT * fro... user" />
+            <marker date="1456269616531" expanded="true" signature="429:573" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:608" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:609" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:742" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:900" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="2075:2093" placeholder="SELECT * fro... film" />
+            <marker date="1456269616531" expanded="true" signature="2168:2797" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -639,29 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_userTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.709091">
-          <caret line="32" column="42" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="42" />
-          <folding>
-            <marker date="1456256770233" expanded="true" signature="323:341" placeholder="SELECT * fro... user" />
-            <marker date="1456256770233" expanded="true" signature="416:560" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:595" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:596" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:729" placeholder="..." />
-            <marker date="1456256770233" expanded="true" signature="416:887" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/stylesheet/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.036364">
-          <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/update_user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -693,37 +689,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/create_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25431532">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding>
-            <marker date="1456256443412" expanded="true" signature="277:336" placeholder="INSERT INTO users... " />
-            <marker date="1456256443412" expanded="true" signature="277:337" placeholder="INSERT INTO user... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/admin_disconnection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03912543">
           <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/admin_controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66513234">
-          <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/models/pdo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22261904">
-          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -736,14 +705,6 @@
             <marker date="1456256443418" expanded="true" signature="123:141" placeholder="SELECT * fro... user" />
             <marker date="1456256443418" expanded="true" signature="129:141" placeholder="select * fro... user" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="27" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -785,10 +746,98 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/models/pdo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="15" column="132" selection-start-line="15" selection-start-column="132" selection-end-line="15" selection-end-column="132" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/update_film.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/delete_film.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+          <folding>
+            <marker date="1456268526026" expanded="true" signature="173:210" placeholder="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/create_user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <marker date="1456256443412" expanded="true" signature="277:336" placeholder="INSERT INTO users... " />
+            <marker date="1456256443412" expanded="true" signature="277:337" placeholder="INSERT INTO user... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/admin_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63255817">
+          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.653847">
+          <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+          <folding>
+            <marker date="1456269616531" expanded="true" signature="336:354" placeholder="SELECT * fro... user" />
+            <marker date="1456269616531" expanded="true" signature="429:573" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:608" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:609" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:742" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="429:900" placeholder="..." />
+            <marker date="1456269616531" expanded="true" signature="2075:2093" placeholder="SELECT * fro... film" />
+            <marker date="1456269616531" expanded="true" signature="2168:2797" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/create_film.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.461538">
+          <caret line="16" column="72" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
+          <folding>
+            <marker date="1456271081956" expanded="true" signature="588:697" placeholder="INSERT INTO film... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/gallery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769">
-          <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
           <folding>
             <marker date="1456256443426" expanded="true" signature="216:234" placeholder="SELECT * fro... film" />
             <marker date="1456256443426" expanded="true" signature="416:766" placeholder="..." />
@@ -806,10 +855,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/main.php">
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/stylesheet/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03912543">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.41516244">
+          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
           <folding />
         </state>
       </provider>
