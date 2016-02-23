@@ -16,18 +16,31 @@
                     <a href="?main">
                         <h2>Timothy Walter Button</h2>
                     </a>
-                    <a href="?admin_signin">
-                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"><b> Connexion</b></span>
-                    </a>
+
+                    <span>
+                        <a href="?admin_signin">
+                            <span class="glyphicon glyphicon-log-in" aria-hidden="true"><b> Connexion</b></span>
+                        </a>
+                        <a href="/web/?gallery">
+                            <span class="glyphicon glyphicon-film" aria-hidden="true"><b> Filmographie</b></span>
+                        </a>
+                    </span>
                 <?php }
 
                 else { ?>
-                        <a href="?admin_userTable">
-                            <h2>Timothy Walter Button</h2>
-                        </a>
+                    <a href="?admin_userTable">
+                        <h2>Timothy Walter Button</h2>
+                    </a>
+
+                    <span>
                         <a href="?admin_disconnection">
                             <span class="glyphicon glyphicon-log-out" aria-hidden="true"><b> Déconnexion</b></span>
                         </a>
+
+                        <a href="/web/?gallery">
+                            <span class="glyphicon glyphicon-film" aria-hidden="true"><b> Filmographie</b></span>
+                        </a>
+                    </span>
                 <?php } ?>
 
             </nav>

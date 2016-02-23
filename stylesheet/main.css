@@ -24,18 +24,40 @@ input {
     color : black;
 }
 
-
 figure {
     background: white none repeat scroll 0 0;
     border: 1px solid #dadada;
     margin: 10px;
     padding: 10px;
+}
+
+figure.large {
+    width: 500px;
+}
+
+figure.large img {
+    text-align : center;
+    width : 478px;
+}
+
+figure.medium {
     width: 300px;
 }
 
-figure img {
-   width : 278px;
+figure.medium img {
+    text-align : center;
+    width : 278px;
 }
+
+figure.tiny {
+    width: 200px;
+}
+
+figure.tiny img {
+    text-align : center;
+    width : 178px;
+}
+
 
 figcaption {
     background: #f4f4f4 none repeat scroll 0 0;
@@ -76,6 +98,13 @@ figcaption {
     background-color:black;
     opacity: 0.8;
 }
+
+#main section ul li figcaption {
+    list-style : none;
+    display : inline-block;
+}
+
+
 
 
 

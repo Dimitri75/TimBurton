@@ -3,7 +3,7 @@
         <h3>Hello World !</h3>
         <br/><br/>
 
-        <figure class="medium">
+        <figure class="large">
             <img src="/web/resources/timburton.png"/>
             <figcaption>Timothy Walter Button (1958)</figcaption>
         </figure>
