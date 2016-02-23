@@ -37,14 +37,20 @@ h1, h2, h3 {
 
 #main section{
     padding : 50px;
+    background-color:black;
+    opacity: 0.8;
 }
+
+
 
 
 /**********HEADER**********/
 /**********HEADER**********/
 header {
-    background: black url("../resources/ban1.png") no-repeat;
+    background: black url("../resources/ban2.png") no-repeat;
     background-size: 100%;
+    transition : 0.5s;
+    /*background-position: 0 -30px;*/
     display : block;
     height: 30vh;
 }

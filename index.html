@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet/main.css">
     <title>8INF830 - Tim Burton</title>
+
+
 </head>
 
 <body>
@@ -30,3 +32,14 @@
 </body>
 
 </html>
+
+<script>
+    var ban = document.querySelector("header");
+    window.onscroll = function() {
+        if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+            ban.style.backgroundPosition = "bottom";
+        } else {
+            ban.style.backgroundPosition = "top";
+        }
+    };
+</script>
