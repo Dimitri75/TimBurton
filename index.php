@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet/main.css">
+    <link rel="icon" type="image/png" href="resources/favicon.png" />
     <title>8INF830 - Tim Burton</title>
 </head>
 
@@ -12,7 +13,7 @@
     <header>
         <nav>
             <h2>Timothy Walter Button</h2>
-            <span class="glyphicon glyphicon-log-in" aria-hidden="true"> Connexion</span>
+            <span class="glyphicon glyphicon-log-in" aria-hidden="true"><b> Connexion</b></span>
         </nav>
     </header>
 
