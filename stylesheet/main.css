@@ -11,13 +11,41 @@ h1, h2, h3 {
     display : inline;
 }
 
-table tr td {
+table tr td, table th {
     padding : 5px;
+    text-align : center;
+}
+
+table a, table a:focus, table a:hover {
+    color : white;
 }
 
 input {
     color : black;
 }
+
+
+figure {
+    background: white none repeat scroll 0 0;
+    border: 1px solid #dadada;
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+}
+
+figure img {
+   width : 278px;
+}
+
+figcaption {
+    background: #f4f4f4 none repeat scroll 0 0;
+    border: 1px dotted #dadada;
+    margin-top: 5px;
+    padding: 5px;
+    color : black;
+}
+
+
 
 /**********MAIN**********/
 /**********MAIN**********/
@@ -69,6 +97,8 @@ header nav {
     background-color : black;
     opacity : 0.5;
     padding : 15px;
+    position : fixed;
+    width : 213vh;
 }
 
 header a {

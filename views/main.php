@@ -3,6 +3,11 @@
         <h3>Hello World !</h3>
         <br/><br/>
 
+        <figure>
+            <img src="/web/resources/timburton.png"/>
+            <figcaption>Timothy Walter Button (1958)</figcaption>
+        </figure>
+
         <p>
             Lorem ipsum dolor sit amet, fastidii ullamcorper vel ad. Autem torquatos vim no, dicam principes quo ne, ne pro discere commune persequeris. Mea mutat dictas ea, est feugiat dolores in. Eum suavitate forensibus scribentur et, at inimicus postulant his, eu graeci signiferumque has. Sit cu justo molestie, omnes denique eam at, docendi offendit voluptua an sea. Cu illud possit per, ei est movet fuisset concludaturque.
         </p>
