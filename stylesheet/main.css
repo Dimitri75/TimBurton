@@ -127,7 +127,7 @@ header nav {
     opacity : 0.5;
     padding : 15px;
     position : fixed;
-    width : 213vh;
+    width : 100%;
 }
 
 header a {
