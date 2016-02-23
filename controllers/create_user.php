@@ -11,5 +11,5 @@
             "password" => $password
         ));
     }
-    header('Location: /web');
+    header('Location: /timburton');
 ?>

@@ -21,7 +21,7 @@
                         <a href="?admin_signin">
                             <span class="glyphicon glyphicon-log-in" aria-hidden="true"><b> Connexion</b></span>
                         </a>
-                        <a href="/web/?gallery">
+                        <a href="/timburton/?gallery">
                             <span class="glyphicon glyphicon-film" aria-hidden="true"><b> Filmographie</b></span>
                         </a>
                     </span>
@@ -37,7 +37,7 @@
                             <span class="glyphicon glyphicon-log-out" aria-hidden="true"><b> Déconnexion</b></span>
                         </a>
 
-                        <a href="/web/?gallery">
+                        <a href="/timburton/?gallery">
                             <span class="glyphicon glyphicon-film" aria-hidden="true"><b> Filmographie</b></span>
                         </a>
                     </span>

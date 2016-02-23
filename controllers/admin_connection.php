@@ -15,5 +15,5 @@
             header('Location: ?admin_userTable');
     }
 
-    header('Location: /web');
+    header('Location: /timburton');
 ?>

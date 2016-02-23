@@ -7,5 +7,5 @@
         $db = connectDB();
         $result = $db->query("DELETE FROM `user` WHERE id='".$id."'");
     }
-    header('Location: /web');
+    header('Location: /timburton');
 ?>

@@ -4,7 +4,7 @@
         <br/><br/>
 
         <figure class="large">
-            <img src="/web/resources/timburton.png"/>
+            <img src="/timburton/resources/timburton.png"/>
             <figcaption>Timothy Walter Button (1958)</figcaption>
         </figure>
 

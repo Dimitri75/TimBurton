@@ -14,8 +14,8 @@
                 echo "<tr>
                         <td>".$data['login']."</td>
                         <td>".$data['password']."</td>
-                        <td><a href='/web/?action=update_user&id=".$data['id']."'><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span></a></td>
-                        <td><a href='/web/?action=delete_user&id=".$data['id']."'><span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span></a></td>
+                        <td><a href='/timburton/?action=update_user&id=".$data['id']."'><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span></a></td>
+                        <td><a href='/timburton/?action=delete_user&id=".$data['id']."'><span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span></a></td>
                     </tr>";
             }
         ?>
@@ -23,7 +23,7 @@
 
         <br/><br/>
         <h3>Ajouter un utilisateur</h3>
-        <form method="post" action="/web/?create_user">
+        <form method="post" action="/timburton/?create_user">
             <table>
                 <tr>
                     <td>Identifiant</td>

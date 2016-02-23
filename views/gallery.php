@@ -8,10 +8,10 @@
                     $db = connectDB();
                     $result = $db->query('SELECT * from film');
                     while ($data = $result->fetch()){
-                        echo "<a href='/web/?action=show_film&id=".$data['id']."'>
+                        echo "<a href='/timburton/?action=show_film&id=".$data['id']."'>
                                 <li>
                                     <figure class='tiny'>
-                                        <img src='/web/resources/film/".$data['illustration']."'/>
+                                        <img src='/timburton/resources/film/".$data['illustration']."'/>
                                         <figcaption>".$data['name']." (".$data['date'].")</figcaption>
                                     </figure>
                                 </li>

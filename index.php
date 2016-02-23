@@ -19,13 +19,13 @@
         }
         else {
             switch ($uri) {
-                case "/web/?admin_signin":
+                case "/timburton/?admin_signin":
                     include_once "views/admin_signin.php";
                     break;
-                case "/web/?admin_connection":
+                case "/timburton/?admin_connection":
                     include_once "controllers/admin_connection.php";
                     break;
-                case "/web/?gallery":
+                case "/timburton/?gallery":
                     include_once "views/gallery.php";
                     break;
                 default:
@@ -53,13 +53,13 @@
         }
         else {
             switch ($uri) {
-                case "/web/?admin_disconnection":
+                case "/timburton/?admin_disconnection":
                     include_once "controllers/admin_disconnection.php";
                     break;
-                case "/web/?create_user":
+                case "/timburton/?create_user":
                     include_once "controllers/create_user.php";
                     break;
-                case "/web/?gallery":
+                case "/timburton/?gallery":
                     include_once "views/gallery.php";
                     break;
                 default:
