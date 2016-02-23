@@ -127,6 +127,7 @@ header {
 }
 
 header nav {
+    z-index: 1;
     transition: 0.5s;
     display : block;
     background-color : black;
