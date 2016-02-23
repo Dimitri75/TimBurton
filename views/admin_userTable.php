@@ -6,6 +6,7 @@
             <th>Identifiant</th>
             <th>Mot de passe</th>
         <?php
+            $db = connectDB();
             $result = $db->query('SELECT * from user');
             while ($data = $result->fetch()){
                 echo "<tr><td>".$data['login']."</td><td>".$data['password']."</td></tr>";
