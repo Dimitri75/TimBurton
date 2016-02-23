@@ -75,6 +75,11 @@ header a {
     color : white;
 }
 
+header a:hover {
+    color : white;
+    text-decoration: none;
+}
+
 header nav:hover {
     opacity : 0.9;
 }
