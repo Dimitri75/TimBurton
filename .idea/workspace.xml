@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ceecf794-c4d4-4ac1-9e7b-2061c01f82eb" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/scripts/changeBackgroundOnScroll.js" afterPath="$PROJECT_DIR$/scripts/changeHeaderOnScroll.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheet/main.css" afterPath="$PROJECT_DIR$/stylesheet/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/admin_connection.php" afterPath="$PROJECT_DIR$/controllers/admin_connection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/admin_disconnection.php" afterPath="$PROJECT_DIR$/controllers/admin_disconnection.php" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,11 +39,11 @@
       <file leaf-file-name="admin_connection.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/admin_connection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+            <state vertical-scroll-proportion="-11.115385">
+              <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
               <folding>
-                <marker date="1456228353813" expanded="true" signature="123:141" placeholder="SELECT * fro... user" />
-                <marker date="1456228353813" expanded="true" signature="129:141" placeholder="select * fro... user" />
+                <marker date="1456232711845" expanded="true" signature="123:141" placeholder="SELECT * fro... user" />
+                <marker date="1456232711845" expanded="true" signature="129:141" placeholder="select * fro... user" />
               </folding>
             </state>
           </provider>
@@ -82,6 +81,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="admin_disconnection.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/admin_disconnection.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.05175038">
+              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stylesheet/main.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -92,10 +101,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="changeHeaderOnScroll.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="changeHeaderOnScroll.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/changeHeaderOnScroll.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12445095">
+            <state vertical-scroll-proportion="0.0">
               <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
               <folding />
             </state>
@@ -107,6 +116,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-4.576923">
               <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_signin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/admin_signin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.2692308">
+              <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -132,14 +151,15 @@
         <option value="$PROJECT_DIR$/pdo.php" />
         <option value="$PROJECT_DIR$/controllers/admin_disconnect.php" />
         <option value="$PROJECT_DIR$/controllers/admin_connect.php" />
-        <option value="$PROJECT_DIR$/controllers/admin_connection.php" />
-        <option value="$PROJECT_DIR$/views/admin_signin.php" />
         <option value="$PROJECT_DIR$/header.php" />
         <option value="$PROJECT_DIR$/views/admin_userTable.php" />
         <option value="$PROJECT_DIR$/views/main.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/stylesheet/main.css" />
         <option value="$PROJECT_DIR$/scripts/changeHeaderOnScroll.js" />
+        <option value="$PROJECT_DIR$/views/admin_signin.php" />
+        <option value="$PROJECT_DIR$/controllers/admin_connection.php" />
+        <option value="$PROJECT_DIR$/controllers/admin_disconnection.php" />
       </list>
     </option>
   </component>
@@ -342,7 +362,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="331" y="203" width="1507" height="821" extended-state="1" />
+    <frame x="331" y="203" width="1507" height="821" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23138833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -396,8 +416,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
           <folding>
-            <marker date="1456228353813" expanded="true" signature="123:141" placeholder="SELECT * fro... user" />
-            <marker date="1456228353813" expanded="true" signature="129:141" placeholder="select * fro... user" />
+            <marker date="1456232711845" expanded="true" signature="123:141" placeholder="SELECT * fro... user" />
+            <marker date="1456232711845" expanded="true" signature="129:141" placeholder="select * fro... user" />
           </folding>
         </state>
       </provider>
@@ -638,22 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/admin_disconnection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin_signin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308">
-          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/admin_userTable.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.038462">
@@ -670,17 +674,6 @@
         <state vertical-scroll-proportion="-4.576923">
           <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/admin_connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding>
-            <marker date="1456228353813" expanded="true" signature="123:141" placeholder="SELECT * fro... user" />
-            <marker date="1456228353813" expanded="true" signature="129:141" placeholder="select * fro... user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -719,8 +712,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/changeHeaderOnScroll.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12445095">
+        <state vertical-scroll-proportion="0.0">
           <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin_signin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/admin_connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <marker date="1456232711845" expanded="true" signature="123:141" placeholder="SELECT * fro... user" />
+            <marker date="1456232711845" expanded="true" signature="129:141" placeholder="select * fro... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/admin_disconnection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05175038">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
           <folding />
         </state>
       </provider>

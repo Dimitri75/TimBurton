@@ -1,4 +1,4 @@
 <?php
     unset($_SESSION['login']);
-    header('Location: ?main');
+    header('Location: /web');
 ?>

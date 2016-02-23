@@ -11,8 +11,9 @@
             }
         }
 
-        if($found) {
+        if($found)
             header('Location: ?admin_userTable');
-        }
     }
+
+    header('Location: /web');
 ?>
