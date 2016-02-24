@@ -36,7 +36,6 @@ figure.large {
 }
 
 figure.large img {
-    text-align : center;
     width : 478px;
 }
 
@@ -45,17 +44,16 @@ figure.medium {
 }
 
 figure.medium img {
-    text-align : center;
     width : 278px;
 }
 
 figure.tiny {
-    width: 200px;
+    width : 200px;
 }
 
 figure.tiny img {
-    text-align : center;
     width : 178px;
+    height : 260px;
 }
 
 
@@ -76,7 +74,7 @@ figcaption {
     border-bottom: solid black 1px;
     padding: 1vh;
     display: block;
-    min-height: 70vh;
+    /*min-height: 70vh;*/
     position: relative;
 }
 
@@ -99,19 +97,25 @@ figcaption {
     opacity: 0.8;
 }
 
-#main section ul {
+#main section.gallery{
+    display : inline-block;
+}
+
+#main section ul li {
     list-style: none;
     display : inline-block;
 }
 
 #main section.left{
-    width : 49.8%;
-    float : left;
+    width : 49.85%;
+    display: inline-block;
+    vertical-align: top;
 }
 
 #main section.right{
-    width : 49.8%;
-    float : right;
+    width : 49.85%;
+    display: inline-block;
+    vertical-align: top;
 }
 
 
