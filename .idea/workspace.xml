@@ -41,16 +41,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show_film.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="show_film.php" pinned="false" current-in-tab="true">
         <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/show_film.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769">
-              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.670347">
+              <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
               <folding>
-                <marker date="1456257486660" expanded="true" signature="142:181" placeholder="SELECT * FRO... film" />
-                <marker date="1456257486660" expanded="true" signature="150:181" placeholder="DELETE FROM " />
-                <marker date="1456257486660" expanded="true" signature="353:549" placeholder="..." />
-                <marker date="1456257486660" expanded="true" signature="577:578" placeholder="..." />
+                <marker date="1456273283212" expanded="true" signature="142:181" placeholder="SELECT * FRO... film" />
+                <marker date="1456273283212" expanded="true" signature="150:181" placeholder="DELETE FROM " />
+                <marker date="1456273283212" expanded="true" signature="398:618" placeholder="..." />
+                <marker date="1456273283212" expanded="true" signature="663:664" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -71,31 +71,35 @@
       <file leaf-file-name="gallery.php" pinned="false" current-in-tab="false">
         <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/gallery.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075">
-              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+            <state vertical-scroll-proportion="-13.076923">
+              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
               <folding>
-                <marker date="1456256443426" expanded="true" signature="216:234" placeholder="SELECT * fro... film" />
-                <marker date="1456256443426" expanded="true" signature="416:766" placeholder="..." />
-                <marker date="1456256443426" expanded="true" signature="474:524" placeholder="..." />
-                <marker date="1456256443426" expanded="true" signature="474:525" placeholder="..." />
-                <marker date="1456256443426" expanded="true" signature="474:526" placeholder="..." />
-                <marker date="1456256443426" expanded="true" signature="474:552" placeholder="..." />
-                <marker date="1456256443426" expanded="true" signature="474:554" placeholder="..." />
-                <marker date="1456256443426" expanded="true" signature="474:632" placeholder="..." />
-                <marker date="1456256443426" expanded="true" signature="474:633" placeholder="..." />
-                <marker date="1456256443426" expanded="true" signature="474:651" placeholder="..." />
-                <marker date="1456256443426" expanded="true" signature="474:652" placeholder="..." />
-                <marker date="1456256443426" expanded="true" signature="474:728" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="215:233" placeholder="SELECT * fro... film" />
+                <marker date="1456273204324" expanded="true" signature="325:803" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="359:765" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="416:417" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="416:765" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="417:729" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="474:524" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="474:525" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="474:526" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="474:552" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="474:554" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="474:632" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="474:633" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="474:651" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="474:652" placeholder="..." />
+                <marker date="1456273204324" expanded="true" signature="474:728" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/stylesheet/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36033058">
-              <caret line="129" column="14" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
+            <state vertical-scroll-proportion="-3.0363636">
+              <caret line="99" column="1" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -137,7 +141,6 @@
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/web/index.php" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/web/stylesheet/main.css" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/header.php" />
-        <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/show_film.php" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/nav/admin_menu.php" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/nav/guest_menu.php" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/pdo.php" />
@@ -151,6 +154,8 @@
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_table.php" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/controllers/create_film.php" />
         <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/stylesheet/main.css" />
+        <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/gallery.php" />
+        <option value="C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/show_film.php" />
       </list>
     </option>
   </component>
@@ -820,27 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/gallery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding>
-            <marker date="1456256443426" expanded="true" signature="216:234" placeholder="SELECT * fro... film" />
-            <marker date="1456256443426" expanded="true" signature="416:766" placeholder="..." />
-            <marker date="1456256443426" expanded="true" signature="474:524" placeholder="..." />
-            <marker date="1456256443426" expanded="true" signature="474:525" placeholder="..." />
-            <marker date="1456256443426" expanded="true" signature="474:526" placeholder="..." />
-            <marker date="1456256443426" expanded="true" signature="474:552" placeholder="..." />
-            <marker date="1456256443426" expanded="true" signature="474:554" placeholder="..." />
-            <marker date="1456256443426" expanded="true" signature="474:632" placeholder="..." />
-            <marker date="1456256443426" expanded="true" signature="474:633" placeholder="..." />
-            <marker date="1456256443426" expanded="true" signature="474:651" placeholder="..." />
-            <marker date="1456256443426" expanded="true" signature="474:652" placeholder="..." />
-            <marker date="1456256443426" expanded="true" signature="474:728" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/admin_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.576923">
@@ -858,24 +842,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/show_film.php">
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/stylesheet/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        <state vertical-scroll-proportion="-3.0363636">
+          <caret line="99" column="1" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/gallery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
           <folding>
-            <marker date="1456257486660" expanded="true" signature="142:181" placeholder="SELECT * FRO... film" />
-            <marker date="1456257486660" expanded="true" signature="150:181" placeholder="DELETE FROM " />
-            <marker date="1456257486660" expanded="true" signature="353:549" placeholder="..." />
-            <marker date="1456257486660" expanded="true" signature="577:578" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="215:233" placeholder="SELECT * fro... film" />
+            <marker date="1456273204324" expanded="true" signature="325:803" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="359:765" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="416:417" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="416:765" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="417:729" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="474:524" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="474:525" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="474:526" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="474:552" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="474:554" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="474:632" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="474:633" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="474:651" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="474:652" placeholder="..." />
+            <marker date="1456273204324" expanded="true" signature="474:728" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/stylesheet/main.css">
+    <entry file="file://C:/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/timburton/views/show_film.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36033058">
-          <caret line="129" column="14" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
-          <folding />
+        <state vertical-scroll-proportion="0.670347">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding>
+            <marker date="1456273283212" expanded="true" signature="142:181" placeholder="SELECT * FRO... film" />
+            <marker date="1456273283212" expanded="true" signature="150:181" placeholder="DELETE FROM " />
+            <marker date="1456273283212" expanded="true" signature="398:618" placeholder="..." />
+            <marker date="1456273283212" expanded="true" signature="663:664" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
