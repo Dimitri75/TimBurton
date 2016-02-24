@@ -5,7 +5,7 @@
             <ul>
                 <?php
                     $db = connectDB();
-                    $result = $db->query('SELECT * from film');
+                    $result = $db->query('SELECT * from film ORDER BY note DESC');
 
                     while ($data = $result->fetch()){
                         echo    "<li>

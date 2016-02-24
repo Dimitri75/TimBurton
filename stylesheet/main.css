@@ -56,8 +56,11 @@ figure.tiny img {
     height : 260px;
 }
 
-
 figcaption {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
     background: #f4f4f4 none repeat scroll 0 0;
     border: 1px dotted #dadada;
     margin-top: 5px;
@@ -74,7 +77,7 @@ figcaption {
     border-bottom: solid black 1px;
     padding: 1vh;
     display: block;
-    /*min-height: 70vh;*/
+    min-height: 70vh;
     position: relative;
 }
 
@@ -118,6 +121,9 @@ figcaption {
     vertical-align: top;
 }
 
+p.resume {
+    text-align : justify;
+}
 
 /**********HEADER**********/
 /**********HEADER**********/
