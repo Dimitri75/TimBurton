@@ -1,3 +1,6 @@
+<?php
+    $movies = resultFromQuery(getMovies(SparqlEnum::TIM_BURTON));
+?>
 <div id="main">
     <section>
         <h3>Filmographie</h3>
@@ -16,6 +19,13 @@
                                         </figure>
                                     </a>
                                 </li>";
+                    }
+                ?>
+
+                <?php
+                    var_dump($movies);
+                    foreach($movies["results"]["bindings"] as $data){
+                        echo    "<li>".$data["label"]["value"]."</li>";
                     }
                 ?>
             </ul>

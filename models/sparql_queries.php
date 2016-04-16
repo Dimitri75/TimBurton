@@ -31,11 +31,12 @@
     }
 
     function getMovies($subject) {
-        $query ="SELECT DISTINCT ?film
+        $query = SparqlEnum::PREFIX.
+            "SELECT DISTINCT ?film
             WHERE {
             { ?film a movie:film } UNION { ?film a dbo:Film }
             ?film dbo:director ?director .
-            FILTER REGEX(str(?director), ".$subject.", 'i')
+            FILTER REGEX(str(?director), ".$subject.")
             }
             LIMIT 100";
 
