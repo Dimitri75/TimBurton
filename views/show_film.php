@@ -3,27 +3,64 @@
         $id = $_GET['id'];
         $query = "";
 
-        $db = connectDB();
-        $result = $db->query("SELECT * FROM `film` WHERE id='".$id."'");
-        $data = $result->fetch();
+        $film = resultFromQuery(getMovieByWikipediaID($id))["results"]["bindings"][0];
     }
 ?>
 
 <div id="main">
     <section>
-        <h3><?php echo $data['name']?></h3>
+        <h3><?php echo $film["label"]["value"] ?></h3>
         <br/><br/>
 
         <table>
             <tr>
-                <td><figure class="large">
-                    <img src="/timburton/resources/film/<?php echo $data['illustration']?>"/>
-                    <figcaption><?php echo $data['name']?> (<?php echo $data['date']?>)</figcaption>
-                </figure></td>
+                <td>
+                    <a href="<?php echo $film["wikiLink"]["value"]; ?>">
+                        <figure class="large">
+                            <img src="<?php echo "" ?>"/>
+                            <figcaption><?php echo $film["label"]["value"]." (".$film["released"]["value"] ?>)</figcaption>
+                        </figure>
+                    </a>
+                </td>
 
-                <td><p class="resume">
-                    <?php echo $data['resume']?>
-                </p></td>
+                <td>
+                    <p class="resume">
+                        <?php echo $film["abstract"]["value"] ?>
+                    </p>
+                    <p>
+                        Directeur :
+                    </p>
+                    <p>
+                        Directeur :
+                    </p>
+                    <p>
+                        Directeur :
+                    </p>
+                    <p>
+                        Directeur :
+                    </p>
+                    <p>
+                        Directeur :
+                    </p>
+                    <p>
+                        Directeur :
+                    </p>
+                    <p>
+                        Directeur :
+                    </p>
+                    <p>
+                        Directeur :
+                    </p>
+                    <p>
+                        Directeur :
+                    </p>
+                    <p>
+                        Directeur :
+                    </p>
+                    <p>
+                        Directeur :
+                    </p>
+                </td>
             </tr>
         </table>
     </section>

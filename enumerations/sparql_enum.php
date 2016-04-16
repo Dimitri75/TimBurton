@@ -2,7 +2,7 @@
     abstract class SparqlEnum{
         const FORMAT = 'json';
         const PREFIX = "PREFIX : <http://dbpedia.org/resource/>
-                        PREFIX dbpedia: <http://dbpedia.org/>
+                        PREFIX dbp: <http://dbpedia.org/property/>
                         PREFIX dbo: <http://dbpedia.org/ontology/>
                         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
                         PREFIX movie: <http://data.linkedmdb.org/resource/movie/>

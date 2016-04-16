@@ -20,6 +20,11 @@ table a, table a:focus, table a:hover {
     color : white;
 }
 
+table tr td p {
+    text-align: left;
+    padding-bottom: 25px;
+}
+
 input {
     color : black;
 }
