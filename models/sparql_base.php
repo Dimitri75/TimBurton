@@ -1,22 +1,21 @@
 <?php
-    function getAbstract($term) {
-        $format = 'json';
+    function constructQuery($subject, $predicates){
+        return SparqlEnum::PREFIX .
+            "SELECT *
+            WHERE {
+            :".$subject." ".$predicates."
+            }";
+    }
 
-        $query = "PREFIX dbo: <http://dbpedia.org/ontology/>
-                PREFIX : <http://dbpedia.org/resource/>
+    function getSearchUrl($query){
+        return 'http://dbpedia.org/sparql?'
+            . 'query='.urlencode($query)
+            . '&format='.SparqlEnum::FORMAT;
+    }
 
-                SELECT ?abstract
-                WHERE {
-                :" . $term . " dbo:abstract ?abstract .
-                FILTER (LANG(?abstract)='fr')
-                }";
-
-        $searchUrl = 'http://dbpedia.org/sparql?'
-            .'query='.urlencode($query)
-            .'&format='.$format;
-
+    function resultFromQuery($searchUrl){
         return json_decode(request($searchUrl), true);
-    };
+    }
 
     function request($url){
         // Is curl installed ?
