@@ -16,7 +16,7 @@
             .'&format='.$format;
 
         return json_decode(request($searchUrl), true);
-    };
+    }
 
     function request($url){
         // Is curl installed ?
