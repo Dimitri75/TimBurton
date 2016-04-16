@@ -25,7 +25,13 @@
             <p>
                 <?php
                     foreach($movies["results"]["bindings"] as $data){
-                        echo    "<li>".$data["film"]["value"]."</li>";
+                        var_dump($data["film"]["value"]);
+                        echo "<li>".$data["film"]["value"]."</li>";
+
+                        $depiction = resultFromQuery(getDepiction($data["film"]["value"]));
+                        var_dump($depiction);
+
+                        //echo   "<li><img src='".$depiction["depiction"]["value"]."'/></li>";
                     }
                 ?>
             </p>
