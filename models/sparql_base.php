@@ -3,7 +3,7 @@
         return SparqlEnum::PREFIX .
             "SELECT *
             WHERE {
-            :".$subject." ".$predicates."
+            ".$subject." ".$predicates."
             }";
     }
 

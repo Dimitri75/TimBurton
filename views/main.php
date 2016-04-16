@@ -1,8 +1,8 @@
 <?php
-    $depiction = resultFromQuery(getDepiction(SparqlEnum::TIM_BURTON));
-    $abstract = resultFromQuery(getAbstract(SparqlEnum::TIM_BURTON));
-    $birthName = resultFromQuery(getBirthName(SparqlEnum::TIM_BURTON));
-    $birthYear = resultFromQuery(getBirthYear(SparqlEnum::TIM_BURTON));
+    $depiction = resultFromQuery(getDepiction(SparqlEnum::SUBJECT_TIM_BURTON));
+    $abstract = resultFromQuery(getAbstract(SparqlEnum::SUBJECT_TIM_BURTON));
+    $birthName = resultFromQuery(getBirthName(SparqlEnum::SUBJECT_TIM_BURTON));
+    $birthYear = resultFromQuery(getBirthYear(SparqlEnum::SUBJECT_TIM_BURTON));
 ?>
 <div id="main">
     <section>

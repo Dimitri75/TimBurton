@@ -36,7 +36,7 @@
             WHERE {
             { ?film a movie:film } UNION { ?film a dbo:Film }
             ?film dbo:director ?director .
-            FILTER REGEX(str(?director), '".$subject."')
+            FILTER REGEX(?director, '".$subject."')
             }
             LIMIT 100";
 

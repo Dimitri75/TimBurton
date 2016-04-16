@@ -9,5 +9,6 @@
                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>";
 
         const TIM_BURTON = "Tim_Burton";
+        const SUBJECT_TIM_BURTON = ":Tim_Burton";
     }
 ?>
