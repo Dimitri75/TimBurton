@@ -1,6 +1,5 @@
 <?php
     $movies = resultFromQuery(getMovies(SparqlEnum::TIM_BURTON));
-echo getMovies(SparqlEnum::TIM_BURTON);
 ?>
 <div id="main">
     <section>
@@ -22,13 +21,13 @@ echo getMovies(SparqlEnum::TIM_BURTON);
                                 </li>";
                     }
                 ?>
-
+            </ul>
+            <p>
                 <?php
-                    var_dump($movies);
                     foreach($movies["results"]["bindings"] as $data){
                         echo    "<li>".$data["film"]["value"]."</li>";
                     }
                 ?>
-            </ul>
+            </p>
     </section>
 </div>
