@@ -31,13 +31,13 @@
     }
 
     function getMovies($subject) {
-        $query = "PREFIX imdb: <http://data.linkedmdb.org/resource/mobie/>
-            SELECT ?movieName
+        $query ="SELECT DISTINCT ?film
             WHERE {
-            ?director imdb:director_name ".$subject.".
-            ?movie imdb:director ?director;
-            <http://purl.org/dc/terms/title> ?movieName.
-            }";
+            { ?film a movie:film } UNION { ?film a dbo:Film }
+            ?film dbo:director ?director .
+            FILTER REGEX(str(?director), ".$subject.", 'i')
+            }
+            LIMIT 100";
 
         return getSearchUrl($query);
     }
