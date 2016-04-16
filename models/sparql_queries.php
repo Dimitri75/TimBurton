@@ -32,11 +32,14 @@
 
     function getMovies($subject) {
         $query = SparqlEnum::PREFIX.
-            "SELECT DISTINCT ?film
+            "SELECT DISTINCT ?film ?label ?wiki ?same
             WHERE {
-            { ?film a movie:film } UNION { ?film a dbo:Film }
-            ?film dbo:director ?director .
-            FILTER REGEX(?director, '".$subject."')
+                { ?film a movie:film } UNION { ?film a dbo:Film }
+                ?film dbo:director ?director .
+                ?film rdfs:label ?label .
+                OPTIONAL { ?film foaf:isPrimaryTopicOf ?wiki } .
+                OPTIONAL { ?film owl:sameAs ?same} .
+                FILTER REGEX(?director, '".$subject."')
             }
             LIMIT 100";
 

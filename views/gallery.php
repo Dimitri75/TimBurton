@@ -25,13 +25,13 @@
             <p>
                 <?php
                     foreach($movies["results"]["bindings"] as $data){
-                        var_dump($data["film"]["value"]);
                         echo "<li>".$data["film"]["value"]."</li>";
+                        var_dump($data["same"]);
 
-                        $depiction = resultFromQuery(getDepiction($data["film"]["value"]));
-                        var_dump($depiction);
+//                        $depiction = resultFromQuery(getDepiction($data["film"]["value"]["results"]["bindings"][0]));
+//                        var_dump($depiction);
 
-                        //echo   "<li><img src='".$depiction["depiction"]["value"]."'/></li>";
+                        //echo "<img src='" . $depiction["results"]["bindings"][0]["depiction"]["value"] . "'/>";
                     }
                 ?>
             </p>
