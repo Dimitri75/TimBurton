@@ -1,8 +1,3 @@
-<?php
-    include_once "models/sparql.php";
-    include_once("enumerations/query_enum.php");
-?>
-
 <div id="main">
     <section>
         <h3>Welcome aboard !</h3>
