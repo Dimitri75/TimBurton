@@ -1,8 +1,6 @@
 <?php
     include_once "models/sparql.php";
-    $term ="Tim_Burton";
-    $requestURL = getUrlDbpediaAbstract($term);
-    $responseArray = json_decode(request($requestURL), true);
+    include_once("enumerations/query_enum.php");
 ?>
 
 <div id="main">
@@ -17,9 +15,8 @@
 
         <p>
             <?php
-            echo $responseArray["results"]
-            ["bindings"][0]
-            ["abstract"]["value"]
+                $responseArray = getAbstract(QueryEnum::TIM_BURTON);
+                echo $responseArray["results"]["bindings"][0]["abstract"]["value"];
             ?>
         </p>
     </section>

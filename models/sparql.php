@@ -1,11 +1,11 @@
 <?php
-    function getUrlDbpediaAbstract($term) {
+    function getAbstract($term) {
         $format = 'json';
 
         $query = "PREFIX dbo: <http://dbpedia.org/ontology/>
                 PREFIX : <http://dbpedia.org/resource/>
 
-                SELECT *
+                SELECT ?abstract
                 WHERE {
                 :" . $term . " dbo:abstract ?abstract .
                 FILTER (LANG(?abstract)='fr')
@@ -15,7 +15,7 @@
             .'query='.urlencode($query)
             .'&format='.$format;
 
-        return $searchUrl;
+        return json_decode(request($searchUrl), true);
     };
 
     function request($url){
