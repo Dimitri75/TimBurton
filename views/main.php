@@ -19,7 +19,7 @@
             </figcaption>
         </figure>
 
-        <p>
+        <p class="resume">
             <?php echo $abstract["results"]["bindings"][0]["abstract"]["value"]; ?>
         </p>
     </section>

@@ -31,7 +31,13 @@
     }
 
     function getMovies($subject) {
-        $query = constructQuery($subject, "dbp:director ?director");
+        $query = "PREFIX imdb: <http://data.linkedmdb.org/resource/mobie/>
+            SELECT ?movieName
+            WHERE {
+            ?director imdb:director_name ".$subject.".
+            ?movie imdb:director ?director;
+            <http://purl.org/dc/terms/title> ?movieName.
+            }";
 
         return getSearchUrl($query);
     }
