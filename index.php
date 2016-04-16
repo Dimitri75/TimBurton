@@ -2,6 +2,8 @@
 
     session_start();
     include_once "models/pdo.php";
+    include_once "models/sparql.php";
+    include_once("enumerations/query_enum.php");
     include_once "views/header.php";
 
     if (isset($_SESSION['login']))
