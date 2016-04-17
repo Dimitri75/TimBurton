@@ -1,5 +1,5 @@
 <?php
-    $movies = resultFromQuery(getMoviesByDirector(SparqlEnum::TIM_BURTON));
+    $movies = resultFromQuery(getMoviesByDirector(SparqlEnum::TIM_BURTON, 100));
 ?>
 <div id="main">
     <section>

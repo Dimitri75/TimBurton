@@ -14,6 +14,7 @@ h1, h2, h3 {
 table tr td, table th {
     padding : 5px;
     text-align : center;
+    vertical-align: top;
 }
 
 table a, table a:focus, table a:hover {
@@ -23,6 +24,10 @@ table a, table a:focus, table a:hover {
 table tr td p {
     text-align: left;
     padding-bottom: 25px;
+}
+
+table tr td:nth-child(2){
+    padding : 25px 100px 100px 100px;
 }
 
 input {
