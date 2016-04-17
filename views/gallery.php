@@ -32,7 +32,7 @@
                     foreach($movies["results"]["bindings"] as $data){
                         $label = removeStringInParentheses($data["label"]["value"]);
                         $moviePosterQuery = getMoviePoster($label);
-                        $searchResult = resultFromQueryForImages($tmp);
+                        $searchResult = resultFromQueryForImages($moviePosterQuery);
                         echo    "<li>
                                     <a href='/timburton/?action=show_film&id=".$data["wiki"]["value"]."'>
                                         <figure class='tiny'>

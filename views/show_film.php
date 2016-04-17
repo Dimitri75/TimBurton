@@ -65,7 +65,7 @@
                 <td>
                     <a href="<?php echo $wikiLink; ?>" target="_blank">
                         <figure class="large">
-                            <img src="<?php echo "" ?>"/>
+                            <img src="<?php echo resultFromQueryForImages(getMoviePoster($label))->Poster; ?>"/>
                             <figcaption>
                                 <?php
                                     $date = ($released != ActionEnum::NO_RESULT) ? " (".$released.")" : "";
