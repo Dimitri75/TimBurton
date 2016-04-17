@@ -47,7 +47,7 @@
                 OPTIONAL { ?film dbo:starring ?actor } .
                 OPTIONAL { ?film rdfs:comment ?comment } .
                 FILTER REGEX(?wiki, '".$id."') .
-                FILTER (lang(?label) = '".SparqlEnum::LANG."') .
+                FILTER (lang(?label) = 'en') .
                 FILTER (lang(?abstract) = '".SparqlEnum::LANG."') .
                 FILTER (lang(?comment) = '".SparqlEnum::LANG."') .
             }
@@ -70,7 +70,7 @@
                 OPTIONAL { ?film dbo:imdbId ?imdbId . }
                 OPTIONAL { ?film dbo:thumbnail ?thumbnail . }
                 FILTER REGEX(?director, '".$subject."') . 
-                FILTER (lang(?label) = 'fr') . 
+                FILTER (lang(?label) = 'en') .
             } 
             LIMIT ".$limit;
 
@@ -88,7 +88,7 @@
                 ?film rdfs:label ?label .
                 ?film dbo:wikiPageID ?wiki .
                 FILTER REGEX(?director, '".$subject."') .
-                FILTER (lang(?label) = '".SparqlEnum::LANG."') .
+                FILTER (lang(?label) = 'en') .
             }
             LIMIT ".$limit;
 
@@ -106,7 +106,7 @@
                     ?film rdfs:label ?label .
                     ?film dbo:wikiPageID ?wiki .
                     FILTER REGEX(?producer, '".$subject."') .
-                    FILTER (lang(?label) = '".SparqlEnum::LANG."') .
+                    FILTER (lang(?label) = 'en') .
                 }
                 LIMIT ".$limit;
 
@@ -124,7 +124,7 @@
                         ?film rdfs:label ?label .
                         ?film dbo:wikiPageID ?wiki .
                         FILTER REGEX(?producer, '".$subject."') .
-                        FILTER (lang(?label) = '".SparqlEnum::LANG."') .
+                        FILTER (lang(?label) = 'en') .
                     }
                     LIMIT ".$limit;
 
