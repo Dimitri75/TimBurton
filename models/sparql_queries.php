@@ -32,16 +32,15 @@
 
     function getMovieByWikipediaID($id) {
         $query = SparqlEnum::PREFIX.
-            "SELECT DISTINCT ?film ?label ?abstract ?released ?wikiLink
+            "SELECT DISTINCT ?film ?label ?abstract ?wikiLink ?producer ?released
             WHERE {
                 { ?film a movie:film } UNION { ?film a dbo:Film }
                 ?film dbo:wikiPageID ?wiki .
                 ?film rdfs:label ?label .
-                OPTIONAL {
-                ?film dbp:released ?released .
-                ?film dbo:abstract ?abstract .
-                ?film foaf:isPrimaryTopicOf ?wikiLink
-                }
+                OPTIONAL { ?film dbp:released ?released } .
+                OPTIONAL { ?film dbo:abstract ?abstract } .
+                OPTIONAL { ?film foaf:isPrimaryTopicOf ?wikiLink } .
+                OPTIONAL { ?film dbp:producer ?producer } .
                 FILTER REGEX(?wiki, '".$id."') .
                 FILTER (lang(?label) = 'fr') .
                 FILTER (lang(?abstract) = 'fr') .
