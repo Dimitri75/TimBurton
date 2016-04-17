@@ -19,6 +19,7 @@
         $distributorName = ActionEnum::NO_RESULT;
         $compositorName = ActionEnum::NO_RESULT;
         $starringName = ActionEnum::NO_RESULT;
+
         if ($producer != ActionEnum::NO_RESULT) {
             $producerName = resultFromQuery(getLabel($producer));
             if (isset($producerName["results"]["bindings"][0]["label"]["value"]))
