@@ -52,6 +52,11 @@
             if (isset($starringName["results"]["bindings"][0]["label"]["value"]))
                 $starringName = $starringName["results"]["bindings"][0]["label"]["value"];
         }
+
+        $poster = resultFromQueryForImages(getMoviePoster($label))->Poster;
+        if($poster == ActionEnum::NO_RESULT){
+            $poster = "#";
+            
     }
 ?>
 
@@ -65,7 +70,7 @@
                 <td>
                     <a href="<?php echo $wikiLink; ?>" target="_blank">
                         <figure class="large">
-                            <img src="<?php echo resultFromQueryForImages(getMoviePoster($label))->Poster; ?>"/>
+                            <img src="<?php echo $poster ?>"/>
                             <figcaption>
                                 <?php
                                     $date = ($released != ActionEnum::NO_RESULT) ? " (".$released.")" : "";
