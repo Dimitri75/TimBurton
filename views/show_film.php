@@ -53,20 +53,14 @@
                 $starringName = $starringName["results"]["bindings"][0]["label"]["value"];
         }
 
-        $poster = resultFromQueryForImages(getMoviePoster($label))->Poster;
-        if ($poster == ActionEnum::NO_RESULT)
-            $poster = "#";
+        $poster = "#";
+        if ($poster != ActionEnum::NO_RESULT)
+            $poster = resultFromQueryForImages(getMoviePoster($label))->Poster;
 
-        $imageArray = resultFromQueryForImages(getMoviePoster($label));
-        $image = "";
-        if(strcmp($imageArray->Response, "True") == 0)
-            $image = $imageArray->Poster;
-            if($image == ActionEnum::NO_RESULT)
-                $image = "#";
-        else
-            $image = "#";
-
-
+        $image = "#";
+        $imageResult = resultFromQueryForImages(getMoviePoster($label));
+        if(strcmp($imageResult->Response, "True") == 0 && $imageResult->Poster != ActionEnum::NO_RESULT)
+            $image = $imageResult->Poster;
     }
 ?>
 
