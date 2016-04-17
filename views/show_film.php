@@ -56,6 +56,17 @@
         $poster = resultFromQueryForImages(getMoviePoster($label))->Poster;
         if ($poster == ActionEnum::NO_RESULT)
             $poster = "#";
+
+        $imageArray = resultFromQueryForImages(getMoviePoster($label));
+        $image = "";
+        if(strcmp($imageArray->Response, "True") == 0)
+            $image = $imageArray->Poster;
+            if($image == ActionEnum::NO_RESULT)
+                $image = "#";
+        else
+            $image = "#";
+
+
     }
 ?>
 
@@ -69,7 +80,7 @@
                 <td>
                     <a href="<?php echo $wikiLink; ?>" target="_blank">
                         <figure class="large">
-                            <img src="<?php echo $poster ?>"/>
+                            <img src="<?php echo $image ?>"/>
                             <figcaption>
                                 <?php
                                     $date = ($released != ActionEnum::NO_RESULT) ? " (".$released.")" : "";
