@@ -157,6 +157,10 @@ header nav {
     width : 100%;
 }
 
+header nav span.glyphicon b {
+    font-family: "Calibri";
+}
+
 header a {
     color : white;
 }

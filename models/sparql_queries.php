@@ -4,7 +4,7 @@
     function getLabel($subject) {
         $query = constructQuery($subject,
             "rdfs:label ?label .
-            OPTIONAL { ?label xml:lang ?lang . FILTER (?lang='".SparqlEnum::LANG."') }");
+            FILTER (lang(?label) = 'en')");
 
         return getSearchUrl($query);
     }
@@ -60,28 +60,7 @@
         return getSearchUrl($query);
     }
 
-    function getMoviesByDirector($subject, $limit) {
-        $subject = removeUrl($subject);
-
-        $query = SparqlEnum::PREFIX.
-            "SELECT DISTINCT ?film ?wiki ?label ?idAllocine ?imdbId ?thumbnail
-            WHERE {
-                { ?film a movie:film } UNION { ?film a dbo:Film } UNION { ?film a :Film }
-                ?film dbo:director ?director .
-                ?film rdfs:label ?label .
-                ?film dbo:wikiPageID ?wiki .
-                OPTIONAL { ?film dbo:idAllocine ?idAllocine } .
-                OPTIONAL { ?film dbo:imdbId ?imdbId } .
-                OPTIONAL { ?film dbo:thumbnail ?thumbnail } .
-                FILTER REGEX(?director, '".$subject."') .
-                FILTER (lang(?label) = 'en') .
-            }
-            LIMIT ".$limit;
-
-        return getSearchUrl($query);
-    }
-
-    function getMoviesByDirectorOld($subject, $limit){
+    function getMoviesByDirector($subject, $limit){
         $subject = removeUrl($subject);
 
         $query = SparqlEnum::PREFIX.
@@ -95,7 +74,6 @@
                 FILTER (lang(?label) = 'en') .
             }
             LIMIT ".$limit;
-
 
         return getSearchUrl($query);
     }

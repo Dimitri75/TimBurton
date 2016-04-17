@@ -33,11 +33,11 @@
                         $label = removeStringInParentheses($data["label"]["value"]);
                         $moviePosterQuery = getMoviePoster($label);
                         $searchResult = resultFromQueryForImages($moviePosterQuery);
-                        $image = "";
+
+                        $image = "#";
                         if(strcmp($searchResult->Response, "True") == 0)
                             $image = $searchResult->Poster;
-                        else
-                            $image = "#";
+
                         echo    "<li>
                                     <a href='/timburton/?action=show_film&id=".$data["wiki"]["value"]."'>
                                         <figure class='tiny'>

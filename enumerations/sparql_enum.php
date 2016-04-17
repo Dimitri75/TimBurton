@@ -12,6 +12,6 @@
                         PREFIX prop-fr: <http://fr.dbpedia.org/property/>";
 
         const TIM_BURTON = "Tim_Burton";
-        const SUBJECT_TIM_BURTON = ":Tim_Burton";
+        const SUBJECT_TIM_BURTON = "http://dbpedia.org/resource/Tim_Burton";
     }
 ?>
