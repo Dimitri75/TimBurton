@@ -1,7 +1,11 @@
 <?php
+    $subject = SparqlEnum::SUBJECT_TIM_BURTON;
     if (isset($_GET['subject']))
         $subject = $_GET['subject'];
-    else $subject = SparqlEnum::SUBJECT_TIM_BURTON;
+
+    $role = ActionEnum::DIRECTOR;
+    if (isset($_GET['role']))
+        $role = $_GET['role'];
 
     $depictionResult = resultFromQuery(getDepiction($subject));
     $abstractResult = resultFromQuery(getAbstract($subject));
@@ -31,7 +35,7 @@
         <p>
             <?php
                 echo
-                    "<a href='/timburton/?action=gallery&subject=".$subject."'>
+                    "<a href='/timburton/?action=gallery&subject=".$subject."&role=".$role."'>
                         <b>Filmographie</b>
                     </a>";
             ?>

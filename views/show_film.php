@@ -3,23 +3,23 @@
         $id = $_GET['id'];
 
         $film = resultFromQuery(getMovieByWikipediaID($id))["results"]["bindings"][0];
-        $label =    isset($film["label"]) ? $film["label"]["value"] : "N/A";
-        $wikiLink = isset($film["wikiLink"]) ? $film["wikiLink"]["value"] : "N/A";
-        $released = isset($film["released"]) ? " (".$film["released"]["value"].")" : "";
-        $abstract = isset($film["abstract"]) ? $film["abstract"]["value"] : "N/A";
-        $comment = isset($film["comment"]) ? $film["comment"]["value"] : "N/A";
-        $producer = isset($film["producer"]) && filter_var($film["producer"]["value"], FILTER_VALIDATE_URL) ? $film["producer"]["value"] : "N/A";
-        $director = isset($film["director"]) && filter_var($film["director"]["value"], FILTER_VALIDATE_URL) ? $film["director"]["value"] : "N/A";
-        $distributor = isset($film["distributor"]) && filter_var($film["distributor"]["value"], FILTER_VALIDATE_URL) ? $film["distributor"]["value"] : "N/A";
-        $compositor = isset($film["compositor"]) && filter_var($film["compositor"]["value"], FILTER_VALIDATE_URL) ? $film["compositor"]["value"] : "N/A";
-        $starring = isset($film["actor"]) && filter_var($film["actor"]["value"], FILTER_VALIDATE_URL) ? $film["actor"]["value"] : "N/A";
+        $label =    isset($film["label"]) ? $film["label"]["value"] : ActionEnum::NO_RESULT;
+        $wikiLink = isset($film["wikiLink"]) ? $film["wikiLink"]["value"] : ActionEnum::NO_RESULT;
+        $released = isset($film["released"]) ? $film["released"]["value"] : ActionEnum::NO_RESULT;
+        $abstract = isset($film["abstract"]) ? $film["abstract"]["value"] : ActionEnum::NO_RESULT;
+        $comment = isset($film["comment"]) ? $film["comment"]["value"] : ActionEnum::NO_RESULT;
+        $producer = isset($film["producer"]) && filter_var($film["producer"]["value"], FILTER_VALIDATE_URL) ? $film["producer"]["value"] : ActionEnum::NO_RESULT;
+        $director = isset($film["director"]) && filter_var($film["director"]["value"], FILTER_VALIDATE_URL) ? $film["director"]["value"] : ActionEnum::NO_RESULT;
+        $distributor = isset($film["distributor"]) && filter_var($film["distributor"]["value"], FILTER_VALIDATE_URL) ? $film["distributor"]["value"] : ActionEnum::NO_RESULT;
+        $compositor = isset($film["compositor"]) && filter_var($film["compositor"]["value"], FILTER_VALIDATE_URL) ? $film["compositor"]["value"] : ActionEnum::NO_RESULT;
+        $starring = isset($film["actor"]) && filter_var($film["actor"]["value"], FILTER_VALIDATE_URL) ? $film["actor"]["value"] : ActionEnum::NO_RESULT;
 
-        $producerName = "N/A";
-        $directorName = "N/A";
-        $distributorName = "N/A";
-        $compositorName = "N/A";
-        $starringName = "N/A";
-        if ($producer != "N/A"){
+        $producerName = ActionEnum::NO_RESULT;
+        $directorName = ActionEnum::NO_RESULT;
+        $distributorName = ActionEnum::NO_RESULT;
+        $compositorName = ActionEnum::NO_RESULT;
+        $starringName = ActionEnum::NO_RESULT;
+        if ($producer != ActionEnum::NO_RESULT){
             $producerName = resultFromQuery(getLabel($producer));
             if (isset($producerName["results"]["bindings"][0]["label"]["value"]))
                 $producerName = $producerName["results"]["bindings"][0]["label"]["value"];
@@ -27,7 +27,7 @@
             $filmsFromProducer = resultFromQuery(getMoviesByProducer($producer, 5));
         }
 
-        if ($director != "N/A"){
+        if ($director != ActionEnum::NO_RESULT){
             $directorName = resultFromQuery(getLabel($director));
             if (isset($directorName["results"]["bindings"][0]["label"]["value"]))
                 $directorName = $directorName["results"]["bindings"][0]["label"]["value"];
@@ -35,19 +35,19 @@
             $filmsFromDirector = resultFromQuery(getMoviesByDirector($director, 5));
         }
 
-        if ($distributor != "N/A"){
+        if ($distributor != ActionEnum::NO_RESULT){
             $distributorName = resultFromQuery(getLabel($distributor));
             if (isset($distributorName["results"]["bindings"][0]["label"]["value"]))
                 $distributorName = $distributorName["results"]["bindings"][0]["label"]["value"];
         }
 
-        if ($compositor != "N/A"){
+        if ($compositor != ActionEnum::NO_RESULT){
             $compositorName = resultFromQuery(getLabel($compositor));
             if (isset($compositorName["results"]["bindings"][0]["label"]["value"]))
                 $compositorName = $compositorName["results"]["bindings"][0]["label"]["value"];
         }
 
-        if ($starring != "N/A"){
+        if ($starring != ActionEnum::NO_RESULT){
             $starringName = resultFromQuery(getLabel($starring));
             if (isset($starringName["results"]["bindings"][0]["label"]["value"]))
                 $starringName = $starringName["results"]["bindings"][0]["label"]["value"];
@@ -66,13 +66,18 @@
                     <a href="<?php echo $wikiLink; ?>" target="_blank">
                         <figure class="large">
                             <img src="<?php echo "" ?>"/>
-                            <figcaption><?php echo $label.$released; ?></figcaption>
+                            <figcaption>
+                                <?php
+                                    $date = ($released != ActionEnum::NO_RESULT) ? " (".$released.")" : "";
+                                    echo $label.$date;
+                                ?>
+                            </figcaption>
                         </figure>
                     </a>
                 </td>
                 <td>
                     <p>
-                        <b>Directeur :</b>
+                        <b>Réalisateur :</b>
                         <?php
                             echo
                                 "<a href='/timburton/?action=main&subject=".$director."'>".
@@ -91,7 +96,7 @@
                     <p>
                         <?php
                         if (isset($filmsFromDirector)) {
-                            echo "<b>Film(s) du même directeur :</b><br/>";
+                            echo "<b>Film(s) du même réalisateur :</b><br/>";
                             foreach ($filmsFromDirector["results"]["bindings"] as $data) {
                                 echo "<a href='/timburton/?action=show_film&id=" . $data["wiki"]["value"] . "'>" .
                                     $data["label"]["value"] .
@@ -105,11 +110,11 @@
                         <?php
                             if (!is_array($producerName)) {
                                 echo
-                                    "<a href='/timburton/?action=main&subject=" . $producer . "'>" .
-                                    $producerName .
+                                    "<a href='/timburton/?action=main&subject=" . $producer . "&role=" . ActionEnum::PRODUCER . "'>" .
+                                        $producerName .
                                     "</a>";
                             }
-                            else echo "N/A";
+                            else echo ActionEnum::NO_RESULT;
                         ?>
                     </p>
                     <p>
@@ -118,7 +123,7 @@
                                 echo "<b>Film(s) du même producteur :</b><br/>";
                                 foreach ($filmsFromProducer["results"]["bindings"] as $data) {
                                     echo "<a href='/timburton/?action=show_film&id=" . $data["wiki"]["value"] . "'>" .
-                                        $data["label"]["value"] .
+                                            $data["label"]["value"] .
                                         "</a><br/>";
                                 }
                             }
@@ -137,8 +142,10 @@
                         <?php echo $starringName; ?>
                     </p>
                     <p>
-                        <b>Année de sortie :</b>
-                        <?php echo $released; ?>
+                        <b>Date de sortie :</b>
+                        <?php
+                            echo $released;
+                        ?>
                     </p>
                 </td>
             </tr>

@@ -1,5 +1,6 @@
 <?php
     abstract class SparqlEnum{
+        const LANG = 'fr';
         const FORMAT = 'json';
         const PREFIX = "PREFIX : <http://dbpedia.org/resource/>
                         PREFIX dbp: <http://dbpedia.org/property/>
