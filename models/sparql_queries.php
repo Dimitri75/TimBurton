@@ -5,6 +5,7 @@
         $query = constructQuery($subject,
             "rdfs:label ?label .
             OPTIONAL { ?label xml:lang ?lang . FILTER (?lang='".SparqlEnum::LANG."') }");
+
         return getSearchUrl($query);
     }
 
@@ -18,7 +19,7 @@
     function getAbstract($subject) {
         $query = constructQuery($subject,
             "dbo:abstract ?abstract .
-            FILTER (LANG(?abstract)='".SparqlEnum::LANG."')");
+            FILTER(LANG(?abstract) = '".SparqlEnum::LANG."' || LANGMATCHES(LANG(?abstract), 'en'))");
 
         return getSearchUrl($query);
     }
@@ -53,6 +54,10 @@
             }
             LIMIT 1";
 
+
+//        FILTER(LANG(?abstract) = '".SparqlEnum::LANG."' || LANGMATCHES(LANG(?abstract), 'en')) .
+//        FILTER(LANG(?comment) = '".SparqlEnum::LANG."' || LANGMATCHES(LANG(?comment), 'en')) .
+
         return getSearchUrl($query);
     }
 
@@ -63,16 +68,18 @@
             "SELECT DISTINCT ?film ?wiki ?label ?idAllocine ?imdbId ?thumbnail
             WHERE {
                 { ?film a movie:film } UNION { ?film a dbo:Film } UNION { ?film a :Film }
-                ?film dbo:director ?director . 
-                ?film rdfs:label ?label . 
-                ?film dbo:wikiPageID ?wiki . 
-                OPTIONAL { ?film dbo:idAllocine ?idAllocine . }
-                OPTIONAL { ?film dbo:imdbId ?imdbId . }
-                OPTIONAL { ?film dbo:thumbnail ?thumbnail . }
-                FILTER REGEX(?director, '".$subject."') . 
-                FILTER (lang(?label) = 'en') .
-            } 
+                ?film dbo:director ?director .
+                ?film rdfs:label ?label .
+                ?film dbo:wikiPageID ?wiki .
+                OPTIONAL { ?film dbo:idAllocine ?idAllocine } .
+                OPTIONAL { ?film dbo:imdbId ?imdbId } .
+                OPTIONAL { ?film dbo:thumbnail ?thumbnail } .
+                FILTER REGEX(?director, '".$subject."') .
+                FILTER (lang(?label) = 'fr') .
+            }
             LIMIT ".$limit;
+
+        echo htmlspecialchars($query);
 
         return getSearchUrl($query);
     }
@@ -91,6 +98,7 @@
                 FILTER (lang(?label) = 'en') .
             }
             LIMIT ".$limit;
+
 
         return getSearchUrl($query);
     }
