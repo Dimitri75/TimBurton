@@ -3,7 +3,7 @@
         $id = $_GET['id'];
 
         $film = resultFromQuery(getMovieByWikipediaID($id))["results"]["bindings"][0];
-        $label =    isset($film["label"]) ? removeStringInParentheses($film["label"]["value"]) : ActionEnum::NO_RESULT;
+        $label = isset($film["label"]) ? removeStringInParentheses($film["label"]["value"]) : ActionEnum::NO_RESULT;
         $wikiLink = isset($film["wikiLink"]) ? $film["wikiLink"]["value"] : ActionEnum::NO_RESULT;
         $released = isset($film["released"]) ? $film["released"]["value"] : ActionEnum::NO_RESULT;
         $abstract = isset($film["abstract"]) ? $film["abstract"]["value"] : ActionEnum::NO_RESULT;
@@ -19,7 +19,7 @@
         $distributorName = ActionEnum::NO_RESULT;
         $compositorName = ActionEnum::NO_RESULT;
         $starringName = ActionEnum::NO_RESULT;
-        if ($producer != ActionEnum::NO_RESULT){
+        if ($producer != ActionEnum::NO_RESULT) {
             $producerName = resultFromQuery(getLabel($producer));
             if (isset($producerName["results"]["bindings"][0]["label"]["value"]))
                 $producerName = $producerName["results"]["bindings"][0]["label"]["value"];
@@ -27,7 +27,7 @@
             $filmsFromProducer = resultFromQuery(getMoviesByProducer($producer, 5));
         }
 
-        if ($director != ActionEnum::NO_RESULT){
+        if ($director != ActionEnum::NO_RESULT) {
             $directorName = resultFromQuery(getLabel($director));
             if (isset($directorName["results"]["bindings"][0]["label"]["value"]))
                 $directorName = $directorName["results"]["bindings"][0]["label"]["value"];
@@ -35,28 +35,27 @@
             $filmsFromDirector = resultFromQuery(getMoviesByDirector($director, 5));
         }
 
-        if ($distributor != ActionEnum::NO_RESULT){
+        if ($distributor != ActionEnum::NO_RESULT) {
             $distributorName = resultFromQuery(getLabel($distributor));
             if (isset($distributorName["results"]["bindings"][0]["label"]["value"]))
                 $distributorName = $distributorName["results"]["bindings"][0]["label"]["value"];
         }
 
-        if ($compositor != ActionEnum::NO_RESULT){
+        if ($compositor != ActionEnum::NO_RESULT) {
             $compositorName = resultFromQuery(getLabel($compositor));
             if (isset($compositorName["results"]["bindings"][0]["label"]["value"]))
                 $compositorName = $compositorName["results"]["bindings"][0]["label"]["value"];
         }
 
-        if ($starring != ActionEnum::NO_RESULT){
+        if ($starring != ActionEnum::NO_RESULT) {
             $starringName = resultFromQuery(getLabel($starring));
             if (isset($starringName["results"]["bindings"][0]["label"]["value"]))
                 $starringName = $starringName["results"]["bindings"][0]["label"]["value"];
         }
 
         $poster = resultFromQueryForImages(getMoviePoster($label))->Poster;
-        if($poster == ActionEnum::NO_RESULT){
+        if ($poster == ActionEnum::NO_RESULT)
             $poster = "#";
-            
     }
 ?>
 

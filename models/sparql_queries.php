@@ -54,7 +54,6 @@
             }
             LIMIT 1";
 
-
 //        FILTER(LANG(?abstract) = '".SparqlEnum::LANG."' || LANGMATCHES(LANG(?abstract), 'en')) .
 //        FILTER(LANG(?comment) = '".SparqlEnum::LANG."' || LANGMATCHES(LANG(?comment), 'en')) .
 
@@ -75,11 +74,9 @@
                 OPTIONAL { ?film dbo:imdbId ?imdbId } .
                 OPTIONAL { ?film dbo:thumbnail ?thumbnail } .
                 FILTER REGEX(?director, '".$subject."') .
-                FILTER (lang(?label) = 'fr') .
+                FILTER (lang(?label) = 'en') .
             }
             LIMIT ".$limit;
-
-        echo htmlspecialchars($query);
 
         return getSearchUrl($query);
     }

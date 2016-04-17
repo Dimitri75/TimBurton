@@ -11,7 +11,6 @@
     }
 
     function getMoviePoster($movieName){
-        $query = "http://www.omdbapi.com/?t=" . urlencode($movieName) . "&y=&plot=short&r=json";
-        return $query;
+        return "http://www.omdbapi.com/?t=" . urlencode($movieName) . "&y=&plot=short&r=json";
     }
 ?>
