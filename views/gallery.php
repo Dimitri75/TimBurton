@@ -1,5 +1,5 @@
 <?php
-    $subject = SparqlEnum::TIM_BURTON;
+    $subject = SparqlEnum::SUBJECT_TIM_BURTON;
     if (isset($_GET['subject']))
         $subject = $_GET['subject'];
 
@@ -25,7 +25,12 @@
 
 <div id="main">
     <section>
-        <h3>Filmographie</h3>
+        <h3>
+            Filmographie de
+            <?php
+                echo resultFromQuery(getLabel($subject))["results"]["bindings"][0]["label"]["value"];
+            ?>
+        </h3>
         <br/><br/>
             <ul>
                 <?php
@@ -47,6 +52,8 @@
                                     </a>
                                 </li>";
                     }
+
+//                <img src='" . $image . "'/>
                 ?>
             </ul>
     </section>
