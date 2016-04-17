@@ -3,7 +3,7 @@
         $id = $_GET['id'];
 
         $film = resultFromQuery(getMovieByWikipediaID($id))["results"]["bindings"][0];
-        $label =    isset($film["label"]) ? $film["label"]["value"] : ActionEnum::NO_RESULT;
+        $label =    isset($film["label"]) ? removeStringInParentheses($film["label"]["value"]) : ActionEnum::NO_RESULT;
         $wikiLink = isset($film["wikiLink"]) ? $film["wikiLink"]["value"] : ActionEnum::NO_RESULT;
         $released = isset($film["released"]) ? $film["released"]["value"] : ActionEnum::NO_RESULT;
         $abstract = isset($film["abstract"]) ? $film["abstract"]["value"] : ActionEnum::NO_RESULT;

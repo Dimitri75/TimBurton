@@ -17,14 +17,22 @@
     }
 
     function resultFromQuery($searchUrl){
-
         return json_decode(request($searchUrl), true);
     }
 
     function resultFromQueryForImages($url){
         $json = file_get_contents($url);
-        $data = json_decode($json);
-        return $data;
+        return json_decode($json);
+    }
+
+    function removeStringInParentheses($str){
+        return preg_replace('/\([^)]+\)/',"",$str);
+    }
+
+    function removeUrl($url){
+        if (filter_var($url, FILTER_VALIDATE_URL))
+            $url = str_replace("http://dbpedia.org/resource/", "", $url);
+        return $url;
     }
 
     function request($url){

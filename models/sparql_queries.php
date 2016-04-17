@@ -130,10 +130,4 @@
 
         return getSearchUrl($query);
     }
-
-    function removeUrl($url){
-        if (filter_var($url, FILTER_VALIDATE_URL))
-            $url = str_replace("http://dbpedia.org/resource/", "", $url);
-        return $url;
-    }
 ?>

@@ -30,6 +30,7 @@
             <ul>
                 <?php
                     foreach($movies["results"]["bindings"] as $data){
+                        $label = removeStringInParentheses($data["label"]["value"]);
 //                        $tmp = getMoviePoster($data["label"]["value"]);
 //                        $searchResult = resultFromQueryForImages($tmp);
 //                        echo    "<li>
@@ -45,7 +46,7 @@
                                     <a href='/timburton/?action=show_film&id=".$data["wiki"]["value"]."'>
                                         <figure class='tiny'>
                                             <img src='#'/>
-                                            <figcaption>".$data["label"]["value"]."</figcaption>
+                                            <figcaption>".$label."</figcaption>
                                         </figure>
                                     </a>
                                 </li>";
