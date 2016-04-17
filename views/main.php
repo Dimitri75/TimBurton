@@ -1,8 +1,18 @@
 <?php
-    $depiction = resultFromQuery(getDepiction(SparqlEnum::SUBJECT_TIM_BURTON));
-    $abstract = resultFromQuery(getAbstract(SparqlEnum::SUBJECT_TIM_BURTON));
-    $birthName = resultFromQuery(getLabel(SparqlEnum::SUBJECT_TIM_BURTON));
-    $birthYear = resultFromQuery(getBirthYear(SparqlEnum::SUBJECT_TIM_BURTON));
+    if (isset($_GET['subject']))
+        $subject = $_GET['subject'];
+    else $subject = SparqlEnum::SUBJECT_TIM_BURTON;
+
+    $depictionResult = resultFromQuery(getDepiction($subject));
+    $abstractResult = resultFromQuery(getAbstract($subject));
+    $birthNameResult = resultFromQuery(getLabel($subject));
+    $birthYearResult = resultFromQuery(getBirthYear($subject));
+
+    $depiction = isset($depictionResult["results"]["bindings"][0]["depiction"]["value"]) ? $depictionResult["results"]["bindings"][0]["depiction"]["value"] : "#";
+    $birthName = isset($birthNameResult["results"]["bindings"][0]["label"]["value"]) ? $birthNameResult["results"]["bindings"][0]["label"]["value"] : "";
+    $birthYear = isset($birthYearResult["results"]["bindings"][0]["birthYear"]["value"]) ? $birthYearResult["results"]["bindings"][0]["birthYear"]["value"] : "";
+    $abstract = isset($abstractResult["results"]["bindings"][0]["abstract"]["value"]) ? $abstractResult["results"]["bindings"][0]["abstract"]["value"] : "";
+
 ?>
 <div id="main">
     <section>
@@ -10,17 +20,24 @@
         <br/><br/>
 
         <figure class="medium">
-            <img src="<?php echo $depiction["results"]["bindings"][0]["depiction"]["value"]; ?>"/>
+            <img src="<?php echo $depiction; ?>"/>
             <figcaption>
                 <?php
-                    echo $birthName["results"]["bindings"][0]["label"]["value"].
-                        " (".$birthYear["results"]["bindings"][0]["birthYear"]["value"].")";
+                    echo $birthName.
+                        " (".$birthYear.")";
                 ?>
             </figcaption>
         </figure>
-
+        <p>
+            <?php
+                echo
+                    "<a href='/timburton/?action=gallery&subject=".$subject."'>
+                        <b>Filmographie</b>
+                    </a>";
+            ?>
+        </p>
         <p class="resume">
-            <?php echo $abstract["results"]["bindings"][0]["abstract"]["value"]; ?>
+            <?php echo $abstract; ?>
         </p>
     </section>
 </div>

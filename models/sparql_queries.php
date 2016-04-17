@@ -32,7 +32,7 @@
 
     function getMovieByWikipediaID($id) {
         $query = SparqlEnum::PREFIX.
-            "SELECT DISTINCT ?film ?label ?abstract ?wikiLink ?producer ?released ?director ?distributor ?compositor ?actor
+            "SELECT DISTINCT ?film ?label ?abstract ?wikiLink ?producer ?released ?director ?distributor ?compositor ?actor ?comment
             WHERE {
                 { ?film a movie:film } UNION { ?film a dbo:Film }
                 ?film dbo:wikiPageID ?wiki .
@@ -45,9 +45,11 @@
                 OPTIONAL { ?film dbo:distributor ?distributor } .
                 OPTIONAL { ?film dbo:musicComposer ?compositor } .
                 OPTIONAL { ?film dbo:starring ?actor } .
+                OPTIONAL { ?film rdfs:comment ?comment } .
                 FILTER REGEX(?wiki, '".$id."') .
                 FILTER (lang(?label) = 'fr') .
                 FILTER (lang(?abstract) = 'fr') .
+                FILTER (lang(?comment) = 'fr') .
             }
             LIMIT 1";
 
@@ -55,6 +57,8 @@
     }
 
     function getMoviesByDirector($subject, $limit) {
+        removeUrl($subject);
+
         $query = SparqlEnum::PREFIX.
             "SELECT DISTINCT ?film ?wiki ?label
             WHERE {
@@ -71,6 +75,8 @@
     }
 
     function getMoviesByProducer($subject, $limit) {
+        removeUrl($subject);
+
         $query = SparqlEnum::PREFIX.
             "SELECT DISTINCT ?film ?wiki ?label
                 WHERE {
@@ -84,5 +90,12 @@
                 LIMIT ".$limit;
 
         return getSearchUrl($query);
+    }
+
+    function removeUrl($url){
+        $label = $url;
+        if (filter_var($url, FILTER_VALIDATE_URL))
+            $label = str_replace("http://dbpedia.org/resource/", "", $label);
+        return $label;
     }
 ?>

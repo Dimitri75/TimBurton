@@ -1,13 +1,13 @@
 <?php
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $query = "";
 
         $film = resultFromQuery(getMovieByWikipediaID($id))["results"]["bindings"][0];
         $label =    isset($film["label"]) ? $film["label"]["value"] : "N/A";
         $wikiLink = isset($film["wikiLink"]) ? $film["wikiLink"]["value"] : "N/A";
         $released = isset($film["released"]) ? " (".$film["released"]["value"].")" : "";
         $abstract = isset($film["abstract"]) ? $film["abstract"]["value"] : "N/A";
+        $comment = isset($film["comment"]) ? $film["comment"]["value"] : "N/A";
         $producer = isset($film["producer"]) && filter_var($film["producer"]["value"], FILTER_VALIDATE_URL) ? $film["producer"]["value"] : "N/A";
         $director = isset($film["director"]) && filter_var($film["director"]["value"], FILTER_VALIDATE_URL) ? $film["director"]["value"] : "N/A";
         $distributor = isset($film["distributor"]) && filter_var($film["distributor"]["value"], FILTER_VALIDATE_URL) ? $film["distributor"]["value"] : "N/A";
@@ -24,9 +24,7 @@
             if (isset($producerName["results"]["bindings"][0]["label"]["value"]))
                 $producerName = $producerName["results"]["bindings"][0]["label"]["value"];
 
-
-            $producerLabel = str_replace("http://dbpedia.org/resource/", "", $producer);
-            $filmsFromProducer = resultFromQuery(getMoviesByProducer($producerLabel, 5));
+            $filmsFromProducer = resultFromQuery(getMoviesByProducer($producer, 5));
         }
 
         if ($director != "N/A"){
@@ -34,8 +32,7 @@
             if (isset($directorName["results"]["bindings"][0]["label"]["value"]))
                 $directorName = $directorName["results"]["bindings"][0]["label"]["value"];
 
-            $directorLabel = str_replace("http://dbpedia.org/resource/", "", $director);
-            $filmsFromDirector = resultFromQuery(getMoviesByDirector($directorLabel, 5));
+            $filmsFromDirector = resultFromQuery(getMoviesByDirector($director, 5));
         }
 
         if ($distributor != "N/A"){
@@ -73,19 +70,23 @@
                         </figure>
                     </a>
                 </td>
-
                 <td>
+                    <p>
+                        <b>Directeur :</b>
+                        <?php
+                            echo
+                                "<a href='/timburton/?action=main&subject=".$director."'>".
+                                    $directorName.
+                                "</a>";
+                        ?>
+                    </p>
+                    <p class="resume">
+                        <b>A propos :</b>
+                        <?php echo $comment; ?>
+                    </p>
                     <p class="resume">
                         <b>Synopsis :</b>
                         <?php echo $abstract; ?>
-                    </p>
-                    <p class="resume">
-                        <b>Commentaire :</b>
-                        <?php echo $abstract; ?>
-                    </p>
-                    <p>
-                        <b>Directeur :</b>
-                        <?php echo $directorName; ?>
                     </p>
                     <p>
                         <?php
@@ -102,7 +103,13 @@
                     <p>
                         <b>Producteur(s) :</b>
                         <?php
-                            echo is_array($producerName) ? "N/A" : $producerName;
+                            if (!is_array($producerName)) {
+                                echo
+                                    "<a href='/timburton/?action=main&subject=" . $producer . "'>" .
+                                    $producerName .
+                                    "</a>";
+                            }
+                            else echo "N/A";
                         ?>
                     </p>
                     <p>

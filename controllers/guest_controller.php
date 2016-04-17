@@ -2,6 +2,12 @@
     $uri = $_SERVER['REQUEST_URI'];
     if (isset($_GET['action'])) {
         switch ($_GET['action']) {
+            case "main":
+                include_once "views/main.php";
+                break;
+            case "gallery":
+                include_once "views/gallery.php";
+                break;
             case "show_film":
                 include_once "views/show_film.php";
                 break;
