@@ -1,5 +1,5 @@
 <?php
-    $movies = resultFromQuery(getMovies(SparqlEnum::TIM_BURTON));
+    $movies = resultFromQuery(getMoviesByDirector(SparqlEnum::TIM_BURTON));
 ?>
 <div id="main">
     <section>
@@ -33,14 +33,6 @@
                                         </figure>
                                     </a>
                                 </li>";
-
-                        //echo "<li>".$data["label"]["value"]."</li>";
-                        //var_dump($data);
-
-//                        $depiction = resultFromQuery(getDepiction($data["film"]["value"]["results"]["bindings"][0]));
-//                        var_dump($depiction);
-
-                        //echo "<img src='" . $depiction["results"]["bindings"][0]["depiction"]["value"] . "'/>";
                     }
                 ?>
             </ul>

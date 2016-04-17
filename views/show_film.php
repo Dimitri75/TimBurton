@@ -3,7 +3,6 @@
         $id = $_GET['id'];
         $query = "";
 
-
         $film = resultFromQuery(getMovieByWikipediaID($id))["results"]["bindings"][0];
         $label =    isset($film["label"]) ? $film["label"]["value"] : "N/A";
         $wikiLink = isset($film["wikiLink"]) ? $film["wikiLink"]["value"] : "N/A";
@@ -12,7 +11,8 @@
         $producer = isset($film["producer"]) && filter_var($film["producer"]["value"], FILTER_VALIDATE_URL) ? $film["producer"]["value"] : "N/A";
 
         if ($producer != "N/A"){
-            // Requête
+            $producerLabel = str_replace("http://dbpedia.org/resource/", "", $producer);
+            $filmsFromProducer = resultFromQuery(getMoviesByProducer($producerLabel));
         }
     }
 ?>
@@ -38,15 +38,21 @@
                         <?php echo $abstract; ?>
                     </p>
                     <p>
-                        Directeur :
-                    </p>
-                    <p>
 
                         Producteur(s) :
                         <?php echo $producer; ?>
                     </p>
                     <p>
-                        Directeur :
+                        Films du même producteur :<br/>
+                        <?php
+                            if (isset($filmsFromProducer)) {
+                                foreach ($filmsFromProducer["results"]["bindings"] as $data) {
+                                    echo "<a href='/timburton/?action=show_film&id=" . $data["wiki"]["value"] . "'>&nbsp&nbsp&nbsp&nbsp&nbsp" .
+                                        $data["label"]["value"] .
+                                        "</a><br/>";
+                                }
+                            }
+                        ?>
                     </p>
                     <p>
                         Directeur :

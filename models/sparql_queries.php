@@ -50,7 +50,7 @@
         return getSearchUrl($query);
     }
 
-    function getMovies($subject) {
+    function getMoviesByDirector($subject) {
         $query = SparqlEnum::PREFIX.
             "SELECT DISTINCT ?film ?wiki ?label
             WHERE {
@@ -62,6 +62,22 @@
                 FILTER (lang(?label) = 'fr') .
             }
             LIMIT 100";
+
+        return getSearchUrl($query);
+    }
+
+    function getMoviesByProducer($subject) {
+        $query = SparqlEnum::PREFIX.
+            "SELECT DISTINCT ?film ?wiki ?label
+                WHERE {
+                    { ?film a movie:film } UNION { ?film a dbo:Film }
+                    ?film dbo:producer ?producer .
+                    ?film rdfs:label ?label .
+                    ?film dbo:wikiPageID ?wiki .
+                    FILTER REGEX(?producer, '".$subject."') .
+                    FILTER (lang(?label) = 'fr') .
+                }
+                LIMIT 5";
 
         return getSearchUrl($query);
     }
