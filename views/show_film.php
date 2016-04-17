@@ -99,7 +99,7 @@
                             echo "<b>Film(s) du même réalisateur :</b><br/>";
                             foreach ($filmsFromDirector["results"]["bindings"] as $data) {
                                 echo "<a href='/timburton/?action=show_film&id=" . $data["wiki"]["value"] . "'>" .
-                                    $data["label"]["value"] .
+                                    removeStringInParentheses($data["label"]["value"]) .
                                     "</a><br/>";
                             }
                         }
@@ -123,7 +123,7 @@
                                 echo "<b>Film(s) du même producteur :</b><br/>";
                                 foreach ($filmsFromProducer["results"]["bindings"] as $data) {
                                     echo "<a href='/timburton/?action=show_film&id=" . $data["wiki"]["value"] . "'>" .
-                                            $data["label"]["value"] .
+                                            removeStringInParentheses($data["label"]["value"]) .
                                         "</a><br/>";
                                 }
                             }
