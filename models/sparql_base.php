@@ -17,7 +17,14 @@
     }
 
     function resultFromQuery($searchUrl){
+
         return json_decode(request($searchUrl), true);
+    }
+
+    function resultFromQueryForImages($url){
+        $json = file_get_contents($url);
+        $data = json_decode($json);
+        return $data;
     }
 
     function request($url){

@@ -22,6 +22,7 @@
             break;
     }
 ?>
+
 <div id="main">
     <section>
         <h3>Filmographie</h3>
@@ -29,10 +30,12 @@
             <ul>
                 <?php
                     foreach($movies["results"]["bindings"] as $data){
+                        $tmp = getMoviePoster($data["label"]["value"]);
+                        $searchResult = resultFromQueryForImages($tmp);
                         echo    "<li>
                                     <a href='/timburton/?action=show_film&id=".$data["wiki"]["value"]."'>
                                         <figure class='tiny'>
-                                            <img src='".$data["wiki"]["value"]."'/>
+                                            <img src='".$searchResult->items[0]->pagemap->cse_image[0]->src."'/>
                                             <figcaption>".$data["label"]["value"]."</figcaption>
                                         </figure>
                                     </a>
