@@ -2,28 +2,19 @@
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
+        $film = resultFromQuery(getMovieByWikipediaID($id))["results"]["bindings"][0];
+        $actors = resultFromQuery(getActorsByWikipediaID($id, 5));
 
-        $film = resultFromQuery(getMovieByWikipediaID($id));//["results"]["bindings"][0];
-        var_dump($film);
         $label = isset($film["label"]) ? removeStringInParentheses($film["label"]["value"]) : ActionEnum::NO_RESULT;
         $wikiLink = isset($film["wikiLink"]) ? $film["wikiLink"]["value"] : ActionEnum::NO_RESULT;
         $released = isset($film["released"]) ? $film["released"]["value"] : ActionEnum::NO_RESULT;
-        $abstract = isset($film["abstract"]) ? $film["abstract"]["value"] : ActionEnum::NO_RESULT;
-        $comment = isset($film["comment"]) ? $film["comment"]["value"] : ActionEnum::NO_RESULT;
         $producer = isset($film["producer"]) && filter_var($film["producer"]["value"], FILTER_VALIDATE_URL) ? $film["producer"]["value"] : ActionEnum::NO_RESULT;
         $director = isset($film["director"]) && filter_var($film["director"]["value"], FILTER_VALIDATE_URL) ? $film["director"]["value"] : ActionEnum::NO_RESULT;
         $distributor = isset($film["distributor"]) && filter_var($film["distributor"]["value"], FILTER_VALIDATE_URL) ? $film["distributor"]["value"] : ActionEnum::NO_RESULT;
         $compositor = isset($film["compositor"]) && filter_var($film["compositor"]["value"], FILTER_VALIDATE_URL) ? $film["compositor"]["value"] : ActionEnum::NO_RESULT;
-        
-        $actors = resultFromQuery(getActorsByWikipediaID($id));
-        $actors = $actors["results"]["bindings"];
+        $actors = isset($actors["results"]["bindings"]) ? $actors["results"]["bindings"] : ActionEnum::NO_RESULT;
 
         $producerName = ActionEnum::NO_RESULT;
-        $directorName = ActionEnum::NO_RESULT;
-        $distributorName = ActionEnum::NO_RESULT;
-        $compositorName = ActionEnum::NO_RESULT;
-        $starringName = ActionEnum::NO_RESULT;
-
         if ($producer != ActionEnum::NO_RESULT) {
             $producerName = resultFromQuery(getLabel($producer));
             if (isset($producerName["results"]["bindings"][0]["label"]["value"]))
@@ -32,6 +23,7 @@
             $filmsFromProducer = resultFromQuery(getMoviesByProducer($producer, 5));
         }
 
+        $directorName = ActionEnum::NO_RESULT;
         if ($director != ActionEnum::NO_RESULT) {
             $directorName = resultFromQuery(getLabel($director));
             if (isset($directorName["results"]["bindings"][0]["label"]["value"]))
@@ -40,17 +32,31 @@
             $filmsFromDirector = resultFromQuery(getMoviesByDirector($director, 5));
         }
 
+        $distributorName = ActionEnum::NO_RESULT;
         if ($distributor != ActionEnum::NO_RESULT) {
             $distributorName = resultFromQuery(getLabel($distributor));
             if (isset($distributorName["results"]["bindings"][0]["label"]["value"]))
                 $distributorName = $distributorName["results"]["bindings"][0]["label"]["value"];
         }
 
+        $compositorName = ActionEnum::NO_RESULT;
         if ($compositor != ActionEnum::NO_RESULT) {
             $compositorName = resultFromQuery(getLabel($compositor));
             if (isset($compositorName["results"]["bindings"][0]["label"]["value"]))
                 $compositorName = $compositorName["results"]["bindings"][0]["label"]["value"];
         }
+
+        $abstract = ActionEnum::NO_RESULT;
+        if (isset($film["abstractFr"]))
+            $abstract = $film["abstractFr"]["value"];
+        else if (isset($film["abstractEn"]))
+            $abstract = $film["abstractEn"]["value"];
+
+        $comment = ActionEnum::NO_RESULT;
+        if (isset($film["commentFr"]))
+            $comment = $film["commentFr"]["value"];
+        else if (isset($film["commentEn"]))
+            $comment = $film["commentEn"]["value"];
 
         $poster = "#";
         if ($poster != ActionEnum::NO_RESULT)
@@ -151,10 +157,12 @@
                     <p>
                         <b>Acteur(s) :</b><br/>
                         <?php
-                            foreach($actors as $actor){
-                               echo "<a href='/timburton/?action=main&subject=" . $actor["actor"]["value"] . "&role=" . ActionEnum::ACTOR . "'>" .
+                            if ($actors != ActionEnum::NO_RESULT) {
+                                foreach ($actors as $actor) {
+                                    echo "<a href='/timburton/?action=main&subject=" . $actor["actor"]["value"] . "&role=" . ActionEnum::ACTOR . "'>" .
                                         $actor["actorName"]["value"] .
-                                    "</a><br/>";
+                                        "</a><br/>";
+                                }
                             }
                         ?>
                     </p>

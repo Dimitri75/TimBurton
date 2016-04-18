@@ -17,9 +17,13 @@
     }
 
     function getAbstract($subject) {
-        $query = constructQuery($subject,
-            "{ dbo:abstract ?abstractFr. FILTER(LANG(?abstractFr) = '" . SparqlEnum::LANG ."') } 
-                UNION { dbo:abstract ?abstractEn . FILTER(LANGMATCHES(LANG(?abstractEn), 'en')) }");
+        $query = SparqlEnum::PREFIX.
+            "SELECT ?abstractFr ?abstractEn
+            WHERE {
+                { <" . $subject . "> dbo:abstract ?abstractFr . FILTER(LANG(?abstractFr) = '" . SparqlEnum::LANG ."') }
+                UNION
+                { <" . $subject . "> dbo:abstract ?abstractEn . FILTER(LANGMATCHES(LANG(?abstractEn), 'en')) }
+            }";
 
         return getSearchUrl($query);
     }
@@ -37,27 +41,32 @@
             WHERE { 
                 { ?film a movie:film } UNION { ?film a dbo:Film } ?film dbo:wikiPageID ?wiki . 
                 ?film rdfs:label ?label . 
-                OPTIONAL { {?film dbp:released ?released} UNION {?film prop-fr:annéeDeSortie ?released} } . 
-                OPTIONAL { { ?film dbo:abstract ?abstractFr. FILTER(LANG(?abstractFr) = '" . SparqlEnum::LANG ."') } UNION { ?film dbo:abstract ?abstractEn . FILTER(LANGMATCHES(LANG(?abstractEn), 'en')) } } . 
+                OPTIONAL { {?film dbp:released ?released} UNION {?film prop-fr:annéeDeSortie ?released} } .
+                OPTIONAL {
+                    { ?film dbo:abstract ?abstractFr. FILTER(LANG(?abstractFr) = '" . SparqlEnum::LANG ."') }
+                    UNION
+                    { ?film dbo:abstract ?abstractEn . FILTER(LANGMATCHES(LANG(?abstractEn), 'en')) }
+                } .
+                OPTIONAL {
+                    { ?film rdfs:comment ?commentFr . FILTER(LANG(?commentFr) = '" . SparqlEnum::LANG . "') }
+                    UNION
+                    { ?film rdfs:comment ?commentEn . FILTER(LANGMATCHES(LANG(?commentEn), 'en')) }
+                } .
                 OPTIONAL { ?film foaf:isPrimaryTopicOf ?wikiLink } . 
                 OPTIONAL { ?film dbp:producer ?producer } . 
                 OPTIONAL { ?film dbo:director ?director } . 
                 OPTIONAL { ?film dbo:distributor ?distributor } . 
                 OPTIONAL { ?film dbo:musicComposer ?compositor } . 
                 OPTIONAL { ?film dbo:starring ?actor } . 
-                OPTIONAL { { ?film rdfs:comment ?commentFr . FILTER(LANG(?commentFr) = '" . SparqlEnum::LANG . "') } UNION { ?film rdfs:comment ?commentEn . FILTER(LANGMATCHES(LANG(?commentEn), 'en')) } } . 
-                FILTER REGEX(?wiki, '" . $id ."') . 
+                FILTER REGEX(?wiki, '" . $id ."') .
                 FILTER (lang(?label) = 'en') . 
             }
             LIMIT 1";
-        echo htmlspecialchars($query);
-//        FILTER(LANG(?abstract) = '".SparqlEnum::LANG."' || LANGMATCHES(LANG(?abstract), 'en')) .
-//        FILTER(LANG(?comment) = '".SparqlEnum::LANG."' || LANGMATCHES(LANG(?comment), 'en')) .
 
         return getSearchUrl($query);
     }
 
-    function getActorsByWikipediaID($id) {
+    function getActorsByWikipediaID($id, $limit) {
 
     $query = SparqlEnum::PREFIX .
         "SELECT DISTINCT ?idActor ?actor ?actorName
@@ -80,7 +89,7 @@
                 FILTER (lang(?comment) = '" . SparqlEnum::LANG . "') . 
                 ?actor dbo:wikiPageID ?idActor .
                 } 
-                LIMIT 10";
+                LIMIT ".$limit;
 
     return getSearchUrl($query);
 }

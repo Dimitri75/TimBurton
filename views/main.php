@@ -15,7 +15,12 @@
     $depiction = isset($depictionResult["results"]["bindings"][0]["depiction"]["value"]) ? $depictionResult["results"]["bindings"][0]["depiction"]["value"] : getRandomImage(ImageEnum::PROFILE_FOLDER);
     $birthName = isset($birthNameResult["results"]["bindings"][0]["label"]["value"]) ? $birthNameResult["results"]["bindings"][0]["label"]["value"] : "";
     $birthYear = isset($birthYearResult["results"]["bindings"][0]["birthYear"]["value"]) ? $birthYearResult["results"]["bindings"][0]["birthYear"]["value"] : "";
-    $abstract = isset($abstractResult["results"]["bindings"][0]["abstract"]["value"]) ? $abstractResult["results"]["bindings"][0]["abstract"]["value"] : "";
+
+    $abstract = ActionEnum::NO_RESULT;
+    if (isset($abstractResult["results"]["bindings"][0]))
+        $abstract = $abstractResult["results"]["bindings"][0]["abstractFr"]["value"];
+    else if (isset($abstractResult["results"]["bindings"][1]))
+        $abstract = $abstractResult["results"]["bindings"][1]["abstractEn"]["value"];
 
 ?>
 <div id="main">
