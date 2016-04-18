@@ -99,7 +99,7 @@
                             echo
                                 "<p>
                                 <b>Réalisateur :</b><br/>
-                                <a href='/timburton/?action=main&subject=/" . $director . "&role=" . ActionEnum::DIRECTOR . "'>" .
+                                <a href='/timburton/?action=main&subject=" . $director . "&role=" . ActionEnum::DIRECTOR . "'>" .
                                 $directorName .
                                 "</a>
                             </p>";
