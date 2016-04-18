@@ -48,7 +48,7 @@
                         echo    "<li>
                                     <a href='/timburton/?action=show_film&id=".$data["wiki"]["value"]."'>
                                         <figure class='tiny'>
-                                            <img src='" . $image . "'/>
+                                            <img src='".$image."'/>
                                             <figcaption>".$label."</figcaption>
                                         </figure>
                                     </a>

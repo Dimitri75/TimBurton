@@ -26,7 +26,7 @@
             $filmsFromProducer = resultFromQuery(getMoviesByProducer($producer, 5));
         }
 
-        $distributorName = ActionEnum::NO_RESULT;
+        $directorName = ActionEnum::NO_RESULT;
         if ($director != ActionEnum::NO_RESULT) {
             $directorName = resultFromQuery(getLabel($director));
             if (isset($directorName["results"]["bindings"][0]["label"]["value"]))
@@ -64,13 +64,14 @@
         else if (isset($film["commentEn"]))
             $comment = $film["commentEn"]["value"];
 
-        $poster = resultFromQueryForImages(getMoviePoster($label))->Poster;
-        $image = "#";
-        $imageResult = resultFromQueryForImages(getMoviePoster($label));
-        if(strcmp($imageResult->Response, "True") == 0 && $imageResult->Poster != ActionEnum::NO_RESULT)
-            $image = $imageResult->Poster;
-        else
-            $image = getRandomImage(ImageEnum::POSTER_FOLDER);
+        $poster = resultFromQueryForImages(getMoviePoster($label));
+        $image = getRandomImage(ImageEnum::POSTER_FOLDER);
+        if (isset($poster->Poster)) {
+            $poster = $poster->Poster;
+            $imageResult = resultFromQueryForImages(getMoviePoster($label));
+            if (strcmp($imageResult->Response, "True") == 0 && $imageResult->Poster != ActionEnum::NO_RESULT)
+                $image = $imageResult->Poster;
+        }
     }
 ?>
 
@@ -87,7 +88,7 @@
                             <img src="<?php echo $image ?>"/>
                             <figcaption>
                                 <?php
-                                    $date = ($released != ActionEnum::NO_RESULT) ? " (".$released.")" : "";
+                                    $date = ($released != ActionEnum::NO_RESULT) ? " (".cleanDate($released).")" : "";
                                     echo $label.$date;
                                 ?>
                             </figcaption>
@@ -96,20 +97,24 @@
                 </td>
                 <td>
                     <?php
-                        if (!is_array($producerName) && $producerName != ActionEnum::NO_RESULT) {
+                        if (!is_array($directorName) && $directorName != ActionEnum::NO_RESULT) {
                             echo
                                 "<p>
                                 <b>Réalisateur :</b><br/>
-                                <a href='/timburton/?action=main&subject=/" . $director . "&role=" . ActionEnum::DIRECTOR . "'>" .
+                                <a href='/timburton/?action=main&subject=" . $director . "&role=" . ActionEnum::DIRECTOR . "'>" .
                                 $directorName .
                                 "</a>
                             </p>";
                         }
+
+                        if (strcmp($comment, $abstract) != 0){
+                            echo "
+                                <p class='resume'>
+                                    <b>À propos :</b><br/>
+                                    ".$comment."
+                                </p>";
+                        }
                     ?>
-                    <p class="resume">
-                        <b>A propos :</b><br/>
-                        <?php echo $comment; ?>
-                    </p>
                     <p class="resume">
                         <b>Synopsis :</b><br/>
                         <?php echo $abstract; ?>
@@ -127,6 +132,7 @@
                             echo "</p>";
                         }
 
+<<<<<<< HEAD
                         if ($producers != ActionEnum::NO_RESULT && !empty($producers)) {
                             echo "<p>
                                     <b>Producteur(s) :</b><br/>";
@@ -137,6 +143,16 @@
                                     "</a><br/>";
                             }
                             echo "</p>";
+=======
+                        if (!is_array($producerName) && strcmp($producerName, ActionEnum::NO_RESULT) != 0) {
+                            echo
+                                "<p>
+                                    <b>Producteur(s) :</b><br/>
+                                     <a href='/timburton/?action=main&subject=" . $producer . "&role=" . ActionEnum::PRODUCER . "'>" .
+                                        removeStringInParentheses($producerName) .
+                                    "</a>
+                                </p>";
+>>>>>>> 2f9f22c5af2d552954988ce5ac20bed7b34ffccd
                         }
 
                         if (isset($filmsFromProducer)) {
@@ -157,7 +173,7 @@
 
                             foreach ($actors as $actor) {
                                 echo "<a href='/timburton/?action=main&subject=" . $actor["actor"]["value"] . "&role=" . ActionEnum::ACTOR . "'>" .
-                                    $actor["actorName"]["value"] .
+                                    removeStringInParentheses($actor["actorName"]["value"]) .
                                     "</a><br/>";
                             }
                             echo "</p>";
@@ -177,7 +193,7 @@
                     <p>
                         <b>Date de sortie :</b><br/>
                         <?php
-                            echo $released;
+                            echo cleanDate($released);
                         ?>
                     </p>
                 </td>
