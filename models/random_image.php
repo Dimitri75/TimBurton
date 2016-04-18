@@ -1,5 +1,4 @@
 <?php
-
     include_once("enumerations/image_enum.php");
 
     function getRandomImage($path)
@@ -11,5 +10,4 @@
         }
         return "#";
     }
-
 ?>

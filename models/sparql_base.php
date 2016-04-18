@@ -1,7 +1,7 @@
 <?php
     function constructQuery($subject, $predicates){
-        if (filter_var($subject, FILTER_VALIDATE_URL))
-            $subject = "<".$subject.">";
+        //if (filter_var($subject, FILTER_VALIDATE_URL))
+        $subject = "<".$subject.">";
 
         return SparqlEnum::PREFIX .
             "SELECT *
@@ -23,16 +23,6 @@
     function resultFromQueryForImages($url){
         $json = file_get_contents($url);
         return json_decode($json);
-    }
-
-    function removeStringInParentheses($str){
-        return preg_replace('/\([^)]+\)/',"",$str);
-    }
-
-    function removeUrl($url){
-        if (filter_var($url, FILTER_VALIDATE_URL))
-            $url = str_replace("http://dbpedia.org/resource/", "", $url);
-        return $url;
     }
 
     function request($url){
