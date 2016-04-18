@@ -14,6 +14,7 @@
         $compositor = isset($film["compositor"]) && filter_var($film["compositor"]["value"], FILTER_VALIDATE_URL) ? $film["compositor"]["value"] : ActionEnum::NO_RESULT;
         $actors = isset($actors["results"]["bindings"]) ? $actors["results"]["bindings"] : ActionEnum::NO_RESULT;
 
+        $producerName = ActionEnum::NO_RESULT;
         if ($producer != ActionEnum::NO_RESULT) {
             $producerName = resultFromQuery(getLabel($producer));
             if (isset($producerName["results"]["bindings"][0]["label"]["value"]))
@@ -23,6 +24,7 @@
             $filmsFromProducer = resultFromQuery(getMoviesByProducer($producer, 5));
         }
 
+        $distributorName = ActionEnum::NO_RESULT;
         if ($director != ActionEnum::NO_RESULT) {
             $directorName = resultFromQuery(getLabel($director));
             if (isset($directorName["results"]["bindings"][0]["label"]["value"]))
@@ -60,10 +62,7 @@
         else if (isset($film["commentEn"]))
             $comment = $film["commentEn"]["value"];
 
-        $poster = "#";
-        if ($poster != ActionEnum::NO_RESULT)
-            $poster = resultFromQueryForImages(getMoviePoster($label))->Poster;
-
+        $poster = resultFromQueryForImages(getMoviePoster($label))->Poster;
         $image = "#";
         $imageResult = resultFromQueryForImages(getMoviePoster($label));
         if(strcmp($imageResult->Response, "True") == 0 && $imageResult->Poster != ActionEnum::NO_RESULT)
