@@ -12,7 +12,10 @@
         $director = isset($film["director"]) && filter_var($film["director"]["value"], FILTER_VALIDATE_URL) ? $film["director"]["value"] : ActionEnum::NO_RESULT;
         $distributor = isset($film["distributor"]) && filter_var($film["distributor"]["value"], FILTER_VALIDATE_URL) ? $film["distributor"]["value"] : ActionEnum::NO_RESULT;
         $compositor = isset($film["compositor"]) && filter_var($film["compositor"]["value"], FILTER_VALIDATE_URL) ? $film["compositor"]["value"] : ActionEnum::NO_RESULT;
-        $starring = isset($film["actor"]) && filter_var($film["actor"]["value"], FILTER_VALIDATE_URL) ? $film["actor"]["value"] : ActionEnum::NO_RESULT;
+        
+        $actors = resultFromQuery(getActorsByWikipediaID($id));
+        $actors = $actors["results"]["bindings"];
+        //var_dump($actors["results"]["bindings"]);
 
         $producerName = ActionEnum::NO_RESULT;
         $directorName = ActionEnum::NO_RESULT;
@@ -47,11 +50,11 @@
                 $compositorName = $compositorName["results"]["bindings"][0]["label"]["value"];
         }
 
-        if ($starring != ActionEnum::NO_RESULT) {
-            $starringName = resultFromQuery(getLabel($starring));
-            if (isset($starringName["results"]["bindings"][0]["label"]["value"]))
-                $starringName = $starringName["results"]["bindings"][0]["label"]["value"];
-        }
+//        if ($starring != ActionEnum::NO_RESULT) {
+//            $starringName = resultFromQuery(getLabel($starring));
+//            if (isset($starringName["results"]["bindings"][0]["label"]["value"]))
+//                $starringName = $starringName["results"]["bindings"][0]["label"]["value"];
+//        }
 
         $poster = "#";
         if ($poster != ActionEnum::NO_RESULT)
@@ -140,15 +143,25 @@
                     </p>
                     <p>
                         <b>Distributeur :</b>
-                        <?php echo $distributorName; ?>
+                        <?php
+                            if (!is_array($producerName))
+                            echo $distributorName;
+                        ?>
                     </p>
                     <p>
                         <b>Compositeur(s) :</b>
                         <?php echo $compositorName; ?>
                     </p>
                     <p>
-                        <b>Acteur(s) :</b>
-                        <?php echo $starringName; ?>
+                        <b>Acteur(s) :</b><br/>
+                        <?php
+                            foreach($actors as $actor){
+                                var_dump($actor);
+                               echo "<a href='/timburton/?action=main&subject=" . $actor["actor"]["value"] . "&role=" . ActionEnum::ACTOR . "'>" .
+                                        $actor["actor"]["value"] .
+                                    "</a><br/>";
+                            }
+                        ?>
                     </p>
                     <p>
                         <b>Date de sortie :</b>

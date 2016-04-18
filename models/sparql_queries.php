@@ -60,7 +60,35 @@
         return getSearchUrl($query);
     }
 
+    function getActorsByWikipediaID($id) {
+
+    $query = SparqlEnum::PREFIX .
+        "SELECT DISTINCT ?idActor ?actor
+            WHERE {
+                { ?film a movie:film } UNION { ?film a dbo:Film } 
+                ?film dbo:wikiPageID ?wiki . 
+                ?film rdfs:label ?label .
+                OPTIONAL { {?film dbp:released ?released} UNION {?film prop-fr:annÃ©eDeSortie ?released} } . 
+                OPTIONAL { ?film dbo:abstract ?abstract } . OPTIONAL { ?film foaf:isPrimaryTopicOf ?wikiLink } . 
+                OPTIONAL { ?film dbp:producer ?producer } . 
+                OPTIONAL { ?film dbo:director ?director } . OPTIONAL { ?film dbo:distributor ?distributor } . 
+                OPTIONAL { ?film dbo:musicComposer ?compositor } . 
+                OPTIONAL { ?film dbo:starring ?actor } . 
+                OPTIONAL { ?film rdfs:comment ?comment } . 
+                FILTER REGEX(?wiki, '" . $id . "') . 
+                FILTER (lang(?label) = 'en') . 
+                FILTER (lang(?abstract) = '" . SparqlEnum::LANG . "') . 
+                FILTER (lang(?comment) = '" . SparqlEnum::LANG . "') . 
+                ?actor dbo:wikiPageID ?idActor .
+                } 
+                LIMIT 10";
+
+    echo $query;
+    return getSearchUrl($query);
+}
+
     function getMoviesByDirector($subject, $limit){
+
         $subject = removeUrl($subject);
 
         $query = SparqlEnum::PREFIX.
@@ -100,16 +128,16 @@
         $subject = removeUrl($subject);
 
         $query = SparqlEnum::PREFIX.
-            "SELECT DISTINCT ?film ?wiki ?label
-                    WHERE {
-                        { ?film a movie:film } UNION { ?film a dbo:Film }
-                        ?film dbp:producer ?producer .
-                        ?film rdfs:label ?label .
-                        ?film dbo:wikiPageID ?wiki .
-                        FILTER REGEX(?producer, '".$subject."') .
-                        FILTER (lang(?label) = 'en') .
-                    }
-                    LIMIT ".$limit;
+            "SELECT DISTINCT ?film ?wiki ?label 
+            WHERE { 
+                { ?film a movie:film } UNION { ?film a dbo:Film } 
+                ?film dbp:starring ?actor. 
+                ?film rdfs:label ?label . 
+                ?film dbo:wikiPageID ?wiki . 
+                FILTER REGEX(?actor, '" . $subject . "') . 
+                FILTER (lang(?label) = 'en') . 
+            } 
+            LIMIT " . $limit;
 
         return getSearchUrl($query);
     }
