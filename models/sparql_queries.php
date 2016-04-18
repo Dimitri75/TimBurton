@@ -83,7 +83,6 @@
                 } 
                 LIMIT 10";
 
-    echo $query;
     return getSearchUrl($query);
 }
 

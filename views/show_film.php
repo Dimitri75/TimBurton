@@ -15,13 +15,13 @@
         
         $actors = resultFromQuery(getActorsByWikipediaID($id));
         $actors = $actors["results"]["bindings"];
-        //var_dump($actors["results"]["bindings"]);
 
         $producerName = ActionEnum::NO_RESULT;
         $directorName = ActionEnum::NO_RESULT;
         $distributorName = ActionEnum::NO_RESULT;
         $compositorName = ActionEnum::NO_RESULT;
         $starringName = ActionEnum::NO_RESULT;
+
         if ($producer != ActionEnum::NO_RESULT) {
             $producerName = resultFromQuery(getLabel($producer));
             if (isset($producerName["results"]["bindings"][0]["label"]["value"]))
@@ -156,7 +156,6 @@
                         <b>Acteur(s) :</b><br/>
                         <?php
                             foreach($actors as $actor){
-                                var_dump($actor);
                                echo "<a href='/timburton/?action=main&subject=" . $actor["actor"]["value"] . "&role=" . ActionEnum::ACTOR . "'>" .
                                         $actor["actor"]["value"] .
                                     "</a><br/>";

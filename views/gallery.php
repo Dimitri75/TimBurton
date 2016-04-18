@@ -52,8 +52,6 @@
                                     </a>
                                 </li>";
                     }
-
-//                <img src='" . $image . "'/>
                 ?>
             </ul>
     </section>
