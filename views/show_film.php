@@ -14,17 +14,15 @@
         $compositor = isset($film["compositor"]) && filter_var($film["compositor"]["value"], FILTER_VALIDATE_URL) ? $film["compositor"]["value"] : ActionEnum::NO_RESULT;
         $actors = isset($actors["results"]["bindings"]) ? $actors["results"]["bindings"] : ActionEnum::NO_RESULT;
 
-        $producerName = ActionEnum::NO_RESULT;
         if ($producer != ActionEnum::NO_RESULT) {
             $producerName = resultFromQuery(getLabel($producer));
             if (isset($producerName["results"]["bindings"][0]["label"]["value"]))
                 $producerName = $producerName["results"]["bindings"][0]["label"]["value"];
-            $producerName = ActionEnum::NO_RESULT;
+            else $producerName = ActionEnum::NO_RESULT;
 
             $filmsFromProducer = resultFromQuery(getMoviesByProducer($producer, 5));
         }
 
-        $directorName = ActionEnum::NO_RESULT;
         if ($director != ActionEnum::NO_RESULT) {
             $directorName = resultFromQuery(getLabel($director));
             if (isset($directorName["results"]["bindings"][0]["label"]["value"]))
@@ -94,84 +92,85 @@
                     </a>
                 </td>
                 <td>
-                    <p>
-                        <b>Réalisateur :</b>
-                        <?php
+                    <?php
+                        if (!is_array($producerName) && $producerName != ActionEnum::NO_RESULT) {
                             echo
-                                "<a href='/timburton/?action=main&subject=".$director."'>".
-                                    $directorName.
-                                "</a>";
-                        ?>
-                    </p>
+                                "<p>
+                                <b>Réalisateur :</b><br/>
+                                <a href='/timburton/?action=main&subject=/" . $director . "&role=" . ActionEnum::DIRECTOR . "'>" .
+                                $directorName .
+                                "</a>
+                            </p>";
+                        }
+                    ?>
                     <p class="resume">
-                        <b>A propos :</b>
+                        <b>A propos :</b><br/>
                         <?php echo $comment; ?>
                     </p>
                     <p class="resume">
-                        <b>Synopsis :</b>
+                        <b>Synopsis :</b><br/>
                         <?php echo $abstract; ?>
                     </p>
-                    <p>
-                        <?php
+                    <?php
                         if (isset($filmsFromDirector)) {
-                            echo "<b>Film(s) du même réalisateur :</b><br/>";
+                            echo
+                            "<p>
+                            <b>Film(s) du même réalisateur :</b><br/>";
                             foreach ($filmsFromDirector["results"]["bindings"] as $data) {
                                 echo "<a href='/timburton/?action=show_film&id=" . $data["wiki"]["value"] . "'>" .
                                     removeStringInParentheses($data["label"]["value"]) .
                                     "</a><br/>";
                             }
+                            echo "</p>";
                         }
-                        ?>
-                    </p>
-                    <p>
-                        <b>Producteur(s) :</b>
-                        <?php
-                            if (!is_array($producerName) && $producerName != ActionEnum::NO_RESULT) {
-                                echo
-                                    "<a href='/timburton/?action=main&subject=" . $producer . "&role=" . ActionEnum::PRODUCER . "'>" .
+
+                        if (!is_array($producerName) && strcmp($producerName, ActionEnum::NO_RESULT) != 0) {
+                            echo
+                                "<p>
+                                    <b>Producteur(s) :</b><br/>
+                                     <a href='/timburton/?action=main&subject=" . $producer . "&role=" . ActionEnum::PRODUCER . "'>" .
                                         $producerName .
-                                    "</a>";
+                                    "</a>
+                                </p>";
+                        }
+
+                        if (isset($filmsFromProducer)) {
+                            echo "
+                                <p>
+                                    <b>Film(s) du même producteur :</b><br/>";
+                                    foreach ($filmsFromProducer["results"]["bindings"] as $data) {
+                                        echo "<a href='/timburton/?action=show_film&id=" . $data["wiki"]["value"] . "'>" .
+                                                removeStringInParentheses($data["label"]["value"]) .
+                                            "</a><br/>";
+                                    }
+                            echo "</p>";
+                        }
+
+                        if ($actors != ActionEnum::NO_RESULT) {
+                            echo "<p>
+                                <b>Acteur(s) :</b><br/>";
+
+                            foreach ($actors as $actor) {
+                                echo "<a href='/timburton/?action=main&subject=" . $actor["actor"]["value"] . "&role=" . ActionEnum::ACTOR . "'>" .
+                                    $actor["actorName"]["value"] .
+                                    "</a><br/>";
                             }
-                            else echo ActionEnum::NO_RESULT;
-                        ?>
-                    </p>
+                            echo "</p>";
+                        }
+                    ?>
                     <p>
-                        <?php
-                            if (isset($filmsFromProducer)) {
-                                echo "<b>Film(s) du même producteur :</b><br/>";
-                                foreach ($filmsFromProducer["results"]["bindings"] as $data) {
-                                    echo "<a href='/timburton/?action=show_film&id=" . $data["wiki"]["value"] . "'>" .
-                                            removeStringInParentheses($data["label"]["value"]) .
-                                        "</a><br/>";
-                                }
-                            }
-                        ?>
-                    </p>
-                    <p>
-                        <b>Distributeur :</b>
+                        <b>Distributeur :</b><br/>
                         <?php
                             if (!is_array($producerName))
                             echo $distributorName;
                         ?>
                     </p>
                     <p>
-                        <b>Compositeur(s) :</b>
+                        <b>Compositeur(s) :</b><br/>
                         <?php echo $compositorName; ?>
                     </p>
                     <p>
-                        <b>Acteur(s) :</b><br/>
-                        <?php
-                            if ($actors != ActionEnum::NO_RESULT) {
-                                foreach ($actors as $actor) {
-                                    echo "<a href='/timburton/?action=main&subject=" . $actor["actor"]["value"] . "&role=" . ActionEnum::ACTOR . "'>" .
-                                        $actor["actorName"]["value"] .
-                                        "</a><br/>";
-                                }
-                            }
-                        ?>
-                    </p>
-                    <p>
-                        <b>Date de sortie :</b>
+                        <b>Date de sortie :</b><br/>
                         <?php
                             echo $released;
                         ?>
