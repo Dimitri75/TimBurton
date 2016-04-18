@@ -157,7 +157,7 @@
                         <?php
                             foreach($actors as $actor){
                                echo "<a href='/timburton/?action=main&subject=" . $actor["actor"]["value"] . "&role=" . ActionEnum::ACTOR . "'>" .
-                                        $actor["actor"]["value"] .
+                                        $actor["actorName"]["value"] .
                                     "</a><br/>";
                             }
                         ?>
