@@ -21,15 +21,16 @@
             $movies = resultFromQuery(getMoviesByDirector($subject, 100));
             break;
     }
+
+    $label = resultFromQuery(getLabel($subject));
+    $label = isset($label["results"]["bindings"][0]["label"]["value"]) ? " de ".$label["results"]["bindings"][0]["label"]["value"] : "";
+
 ?>
 
 <div id="main">
     <section>
         <h3>
-            Filmographie de
-            <?php
-                echo resultFromQuery(getLabel($subject))["results"]["bindings"][0]["label"]["value"];
-            ?>
+            Filmographie<?php echo $label; ?>
         </h3>
         <br/><br/>
             <ul>

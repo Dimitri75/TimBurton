@@ -126,7 +126,7 @@
                     <p>
                         <b>Producteur(s) :</b>
                         <?php
-                            if (!is_array($producerName)) {
+                            if (!is_array($producerName) && $producerName != ActionEnum::NO_RESULT) {
                                 echo
                                     "<a href='/timburton/?action=main&subject=" . $producer . "&role=" . ActionEnum::PRODUCER . "'>" .
                                         $producerName .
