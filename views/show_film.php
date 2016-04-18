@@ -108,7 +108,7 @@
                         if (strcmp($comment, $abstract) != 0){
                             echo "
                                 <p class='resume'>
-                                    <b>A propos :</b><br/>
+                                    <b>À propos :</b><br/>
                                     ".$comment."
                                 </p>";
                         }

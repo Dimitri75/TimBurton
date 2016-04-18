@@ -47,6 +47,7 @@
             ?>
         </p>
         <p class="resume">
+            <b>À propos :</b><br/>
             <?php echo $abstract; ?>
         </p>
     </section>
