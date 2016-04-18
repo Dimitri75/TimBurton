@@ -122,24 +122,28 @@
                         }
 
                         if ($producers != ActionEnum::NO_RESULT && !empty($producers)) {
+                            $listProducers = array();
+
                             echo
                                 "<p>
                                     <b>Producteur(s) :</b><br/>";
                                     foreach($producers as $prod){
+                                        $listProducers[] = removeUrl($prod["producer"]["value"]);
                                         echo "<a href='/timburton/?action=main&subject=" . $prod["producer"]["value"] . "&role=" . ActionEnum::PRODUCER . "'>" .
                                             removeStringInParentheses($prod["producerName"]["value"]) .
                                         "</a><br/>";
                                     }
                             echo "</p>";
 
-                            //$filmsFromProducers = resultFromQuery(getMoviesByProducers());
+                            $filmsFromProducers = resultFromQuery(getMoviesByProducers($listProducers, 5));
                         }
 
-                        if (isset($filmsFromProducer) && !empty($filmsFromProducers)) {
+                        if (isset($filmsFromProducers["results"]["bindings"]) && !empty($filmsFromProducers["results"]["bindings"])) {
+                            $filmsFromProducers = $filmsFromProducers["results"]["bindings"];
                             echo "
                                 <p>
                                     <b>Film(s) du même producteur :</b><br/>";
-                                    foreach ($filmsFromProducer["results"]["bindings"] as $data) {
+                                    foreach ($filmsFromProducers as $data) {
                                         echo "<a href='/timburton/?action=show_film&film=" . $data["film"]["value"] . "'>" .
                                                 removeStringInParentheses($data["label"]["value"]) .
                                             "</a><br/>";

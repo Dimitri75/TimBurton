@@ -135,7 +135,7 @@
                 { ?film a movie:film } UNION { ?film a dbo:Film } 
                 ?film dbp:starring ?actor. 
                 ?film rdfs:label ?label .
-                FILTER REGEX(?actor, '" . $subject . "') . 
+                FILTER REGEX(?actor, '" . $subject . "') .
                 FILTER (lang(?label) = 'en') . 
             } 
             LIMIT " . $limit;
@@ -143,8 +143,22 @@
         return getSearchUrl($query);
     }
 
-    function getMovieByProducers($subject, $limit){
+    function getMoviesByProducers($subject, $limit){
         $subject = removeUrl($subject);
+
+        $filter = "";
+        if(is_array($subject) && !empty($subject)) {
+            $object = new ArrayObject($subject);
+            $it = $object->getIterator();
+
+            $filter = "FILTER (REGEX(?producer, '" . $it->current() . "')";
+            $it->next();
+            while ($it->valid()) {
+                $filter = $filter . " || REGEX(?producer, '" . $it->current() . "')";
+                $it->next();
+            }
+            $filter = $filter . ") .";
+        }
 
         $query = SparqlEnum::PREFIX.
             "SELECT DISTINCT ?film ?label
@@ -152,7 +166,7 @@
                     { ?film a movie:film } UNION { ?film a dbo:Film }
                     ?film dbp:producer ?producer .
                     ?film rdfs:label ?label .
-                    FILTER REGEX(?producer, '".$subject."') .
+                    ".$filter."
                     FILTER (lang(?label) = 'en') .
                 }
                 LIMIT ".$limit;
