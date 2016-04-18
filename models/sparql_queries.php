@@ -66,46 +66,28 @@
         return getSearchUrl($query);
     }
 
-    function getActorsByWikipediaID($id, $limit)
+    function getActorsByMovie($movie, $limit)
     {
 
         $query = SparqlEnum::PREFIX .
             "SELECT DISTINCT ?idActor ?actor ?actorName
             WHERE {
-                { ?film a movie:film } UNION { ?film a dbo:Film } 
-                ?film dbo:wikiPageID ?wiki . 
-                ?film rdfs:label ?label .
-                OPTIONAL { {?film dbp:released ?released} UNION {?film prop-fr:annÃ©eDeSortie ?released} } . 
-                OPTIONAL { ?film dbo:abstract ?abstract } . OPTIONAL { ?film foaf:isPrimaryTopicOf ?wikiLink } . 
-                OPTIONAL { ?film dbp:producer ?producer } . 
-                OPTIONAL { ?film dbo:director ?director } . OPTIONAL { ?film dbo:distributor ?distributor } . 
-                OPTIONAL { ?film dbo:musicComposer ?compositor } . 
-                OPTIONAL { ?film dbo:starring ?actor } . 
-                OPTIONAL { ?film rdfs:comment ?comment } . 
-                ?actor rdfs:label ?actorName .
-                FILTER REGEX(?wiki, '" . $id . "') . 
-                FILTER (lang(?label) = 'en') . 
-                FILTER (lang(?actorName) = 'en') .
-                FILTER (lang(?abstract) = '" . SparqlEnum::LANG . "') . 
-                FILTER (lang(?comment) = '" . SparqlEnum::LANG . "') . 
+                <" . $movie . "> dbo:starring ?actor .
                 ?actor dbo:wikiPageID ?idActor .
+                ?actor rdfs:label ?actorName .
+                FILTER (lang(?actorName) = 'en') .
                 } 
                 LIMIT " . $limit;
-
         return getSearchUrl($query);
     }
 
-    function getProducersByWikipediaID($id, $limit){
+    function getProducersByMovie($movie, $limit){
         $query = SparqlEnum::PREFIX .
             "SELECT DISTINCT ?idProducer ?producer ?producerName 
             WHERE { 
-                { ?film a movie:film } UNION { ?film a dbo:Film } 
-                ?film dbo:wikiPageID ?wiki . 
-                ?film rdfs:label ?label . 
-                OPTIONAL { ?film dbp:producer ?producer } . 
-                OPTIONAL { ?producer rdfs:label ?producerName } . 
+                <" . $movie . "> dbp:producer ?producer .
                 ?producer dbo:wikiPageID ?idProducer .
-                FILTER REGEX(?wiki, '" . $id . "') . 
+                ?producer rdfs:label ?producerName .
                 FILTER (LANG(?producerName) = 'en') .
             } 
             LIMIT " . $limit;

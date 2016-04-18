@@ -3,8 +3,8 @@
         $id = $_GET['id'];
 
         $film = resultFromQuery(getMovieByWikipediaID($id))["results"]["bindings"][0];
-        $actors = resultFromQuery(getActorsByWikipediaID($id, 5));
-        $producers = resultFromQuery(getProducersByWikipediaID($id, 5));
+        $actors = resultFromQuery(getActorsByMovie($film["film"]["value"], 5));
+        $producers = resultFromQuery(getProducersByMovie($film["film"]["value"], 5));
 
         $label = isset($film["label"]) ? removeStringInParentheses($film["label"]["value"]) : ActionEnum::NO_RESULT;
         $wikiLink = isset($film["wikiLink"]) ? $film["wikiLink"]["value"] : ActionEnum::NO_RESULT;
@@ -132,27 +132,17 @@
                             echo "</p>";
                         }
 
-<<<<<<< HEAD
                         if ($producers != ActionEnum::NO_RESULT && !empty($producers)) {
-                            echo "<p>
-                                    <b>Producteur(s) :</b><br/>";
-
-                            foreach ($producers as $producerC) {
-                                echo "<a href='/timburton/?action=main&subject=" . $producerC["producer"]["value"] . "&role=" . ActionEnum::PRODUCER . "'>" .
-                                    $producerC["producerName"]["value"] .
-                                    "</a><br/>";
-                            }
-                            echo "</p>";
-=======
-                        if (!is_array($producerName) && strcmp($producerName, ActionEnum::NO_RESULT) != 0) {
                             echo
                                 "<p>
-                                    <b>Producteur(s) :</b><br/>
-                                     <a href='/timburton/?action=main&subject=" . $producer . "&role=" . ActionEnum::PRODUCER . "'>" .
-                                        removeStringInParentheses($producerName) .
-                                    "</a>
-                                </p>";
->>>>>>> 2f9f22c5af2d552954988ce5ac20bed7b34ffccd
+                                    <b>Producteur(s) :</b><br/>";
+
+                            foreach($producers as $producerC){
+                                echo "<a href='/timburton/?action=main&subject=" . $producerC["producer"]["value"] . "&role=" . ActionEnum::PRODUCER . "'>" .
+                                removeStringInParentheses($producerC["producerName"]["value"]) .
+                                "</a><br/>";
+                            }
+                            echo "</p>";
                         }
 
                         if (isset($filmsFromProducer)) {
