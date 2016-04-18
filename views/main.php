@@ -34,7 +34,7 @@
             <figcaption>
                 <?php
                     echo $birthName.
-                        " (".$birthYear.")";
+                        " (".cleanDate($birthYear).")";
                 ?>
             </figcaption>
         </figure>

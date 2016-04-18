@@ -62,13 +62,14 @@
         else if (isset($film["commentEn"]))
             $comment = $film["commentEn"]["value"];
 
-        $poster = resultFromQueryForImages(getMoviePoster($label))->Poster;
-        $image = "#";
-        $imageResult = resultFromQueryForImages(getMoviePoster($label));
-        if(strcmp($imageResult->Response, "True") == 0 && $imageResult->Poster != ActionEnum::NO_RESULT)
-            $image = $imageResult->Poster;
-        else
-            $image = getRandomImage(ImageEnum::POSTER_FOLDER);
+        $poster = resultFromQueryForImages(getMoviePoster($label));
+        $image = getRandomImage(ImageEnum::POSTER_FOLDER);
+        if (isset($poster->Poster)) {
+            $poster = $poster->Poster;
+            $imageResult = resultFromQueryForImages(getMoviePoster($label));
+            if (strcmp($imageResult->Response, "True") == 0 && $imageResult->Poster != ActionEnum::NO_RESULT)
+                $image = $imageResult->Poster;
+        }
     }
 ?>
 
@@ -85,7 +86,7 @@
                             <img src="<?php echo $image ?>"/>
                             <figcaption>
                                 <?php
-                                    $date = ($released != ActionEnum::NO_RESULT) ? " (".$released.")" : "";
+                                    $date = ($released != ActionEnum::NO_RESULT) ? " (".cleanDate($released).")" : "";
                                     echo $label.$date;
                                 ?>
                             </figcaption>
@@ -157,7 +158,7 @@
 
                             foreach ($actors as $actor) {
                                 echo "<a href='/timburton/?action=main&subject=" . $actor["actor"]["value"] . "&role=" . ActionEnum::ACTOR . "'>" .
-                                    $actor["actorName"]["value"] .
+                                    removeStringInParentheses($actor["actorName"]["value"]) .
                                     "</a><br/>";
                             }
                             echo "</p>";
@@ -177,7 +178,7 @@
                     <p>
                         <b>Date de sortie :</b><br/>
                         <?php
-                            echo $released;
+                            echo cleanDate($released);
                         ?>
                     </p>
                 </td>
