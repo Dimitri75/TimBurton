@@ -3,13 +3,13 @@
         $id = $_GET['id'];
 
 
-        $film = resultFromQuery(getMovieByWikipediaID($id));//["results"]["bindings"][0];
-        var_dump($film);
+        $film = resultFromQuery(getMovieByWikipediaID($id))["results"]["bindings"][0];
+        
         $label = isset($film["label"]) ? removeStringInParentheses($film["label"]["value"]) : ActionEnum::NO_RESULT;
         $wikiLink = isset($film["wikiLink"]) ? $film["wikiLink"]["value"] : ActionEnum::NO_RESULT;
         $released = isset($film["released"]) ? $film["released"]["value"] : ActionEnum::NO_RESULT;
-        $abstract = isset($film["abstract"]) ? $film["abstract"]["value"] : ActionEnum::NO_RESULT;
-        $comment = isset($film["comment"]) ? $film["comment"]["value"] : ActionEnum::NO_RESULT;
+        $abstract = isset($film["abstractFr"]) ? $film["abstractFr"]["value"] : $film["abstractEn"]["value"];
+        $comment = isset($film["commentFr"]) ? $film["commentFr"]["value"] :$film["commentEn"]["value"];
         $producer = isset($film["producer"]) && filter_var($film["producer"]["value"], FILTER_VALIDATE_URL) ? $film["producer"]["value"] : ActionEnum::NO_RESULT;
         $director = isset($film["director"]) && filter_var($film["director"]["value"], FILTER_VALIDATE_URL) ? $film["director"]["value"] : ActionEnum::NO_RESULT;
         $distributor = isset($film["distributor"]) && filter_var($film["distributor"]["value"], FILTER_VALIDATE_URL) ? $film["distributor"]["value"] : ActionEnum::NO_RESULT;
