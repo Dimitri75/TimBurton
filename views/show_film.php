@@ -3,27 +3,17 @@
         $movie = $_GET['film'];
 
         $film = resultFromQuery(getMovieDetails($movie))["results"]["bindings"][0];
-        $actors = resultFromQuery(getActorsByWikipediaID($movie, 5));
+        $actors = resultFromQuery(getActorsByMovie($movie, 5));
+        $producers = resultFromQuery(getProducersByMovie($movie, 5));
 
         $label = isset($film["label"]) ? removeStringInParentheses($film["label"]["value"]) : ActionEnum::NO_RESULT;
         $wikiLink = isset($film["wikiLink"]) ? $film["wikiLink"]["value"] : ActionEnum::NO_RESULT;
         $released = isset($film["released"]) ? $film["released"]["value"] : ActionEnum::NO_RESULT;
-        $producer = isset($film["producer"]) && filter_var($film["producer"]["value"], FILTER_VALIDATE_URL) ? $film["producer"]["value"] : ActionEnum::NO_RESULT;
         $director = isset($film["director"]) && filter_var($film["director"]["value"], FILTER_VALIDATE_URL) ? $film["director"]["value"] : ActionEnum::NO_RESULT;
         $distributor = isset($film["distributor"]) && filter_var($film["distributor"]["value"], FILTER_VALIDATE_URL) ? $film["distributor"]["value"] : ActionEnum::NO_RESULT;
         $compositor = isset($film["compositor"]) && filter_var($film["compositor"]["value"], FILTER_VALIDATE_URL) ? $film["compositor"]["value"] : ActionEnum::NO_RESULT;
         $actors = isset($actors["results"]["bindings"]) ? $actors["results"]["bindings"] : ActionEnum::NO_RESULT;
         $producers = isset($producers["results"]["bindings"]) ? $producers["results"]["bindings"] : ActionEnum::NO_RESULT;
-
-        $producerName = ActionEnum::NO_RESULT;
-        if ($producer != ActionEnum::NO_RESULT) {
-            $producerName = resultFromQuery(getLabel($producer));
-            if (isset($producerName["results"]["bindings"][0]["label"]["value"]))
-                $producerName = $producerName["results"]["bindings"][0]["label"]["value"];
-            else $producerName = ActionEnum::NO_RESULT;
-
-            $filmsFromProducer = resultFromQuery(getMoviesByProducer($producer, 5));
-        }
 
         $directorName = ActionEnum::NO_RESULT;
         if ($director != ActionEnum::NO_RESULT) {
@@ -131,17 +121,21 @@
                             echo "</p>";
                         }
 
-                        if (!is_array($producerName) && strcmp($producerName, ActionEnum::NO_RESULT) != 0) {
+                        if ($producers != ActionEnum::NO_RESULT && !empty($producers)) {
                             echo
                                 "<p>
-                                    <b>Producteur(s) :</b><br/>
-                                     <a href='/timburton/?action=main&subject=" . $producer . "&role=" . ActionEnum::PRODUCER . "'>" .
-                                        removeStringInParentheses($producerName) .
-                                    "</a>
-                                </p>";
+                                    <b>Producteur(s) :</b><br/>";
+                                    foreach($producers as $prod){
+                                        echo "<a href='/timburton/?action=main&subject=" . $prod["producer"]["value"] . "&role=" . ActionEnum::PRODUCER . "'>" .
+                                            removeStringInParentheses($prod["producerName"]["value"]) .
+                                        "</a><br/>";
+                                    }
+                            echo "</p>";
+
+                            //$filmsFromProducers = resultFromQuery(getMoviesByProducers());
                         }
 
-                        if (isset($filmsFromProducer)) {
+                        if (isset($filmsFromProducer) && !empty($filmsFromProducers)) {
                             echo "
                                 <p>
                                     <b>Film(s) du même producteur :</b><br/>";
@@ -159,7 +153,7 @@
 
                             foreach ($actors as $actor) {
                                 echo "<a href='/timburton/?action=main&subject=" . $actor["actor"]["value"] . "&role=" . ActionEnum::ACTOR . "'>" .
-                                    removeStringInParentheses($actor["actorName"]["value"]) .
+                                        removeStringInParentheses($actor["actorName"]["value"]) .
                                     "</a><br/>";
                             }
                             echo "</p>";
@@ -168,7 +162,7 @@
                     <p>
                         <b>Distributeur :</b><br/>
                         <?php
-                            if (!is_array($producerName))
+                            if (!is_array($distributorName))
                             echo $distributorName;
                         ?>
                     </p>

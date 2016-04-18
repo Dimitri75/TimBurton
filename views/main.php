@@ -13,8 +13,8 @@
     $birthYearResult = resultFromQuery(getBirthYear($subject));
 
     $depiction = isset($depictionResult["results"]["bindings"][0]["depiction"]["value"]) ? $depictionResult["results"]["bindings"][0]["depiction"]["value"] : getRandomImage(ImageEnum::PROFILE_FOLDER);
-    $birthName = isset($birthNameResult["results"]["bindings"][0]["label"]["value"]) ? $birthNameResult["results"]["bindings"][0]["label"]["value"] : "";
-    $birthYear = isset($birthYearResult["results"]["bindings"][0]["birthYear"]["value"]) ? $birthYearResult["results"]["bindings"][0]["birthYear"]["value"] : "";
+    $birthName = isset($birthNameResult["results"]["bindings"][0]["label"]["value"]) ? $birthNameResult["results"]["bindings"][0]["label"]["value"] : ActionEnum::NO_RESULT;
+    $birthYear = isset($birthYearResult["results"]["bindings"][0]["birthYear"]["value"]) ? $birthYearResult["results"]["bindings"][0]["birthYear"]["value"] : ActionEnum::NO_RESULT;
 
     $abstract = ActionEnum::NO_RESULT;
     if (isset($abstractResult[0]))
