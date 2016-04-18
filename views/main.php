@@ -8,7 +8,7 @@
         $role = $_GET['role'];
 
     $depictionResult = resultFromQuery(getDepiction($subject));
-    $abstractResult = resultFromQuery(getAbstract($subject));
+    $abstractResult = resultFromQuery(getAbstract($subject))["results"]["bindings"];
     $birthNameResult = resultFromQuery(getLabel($subject));
     $birthYearResult = resultFromQuery(getBirthYear($subject));
 
@@ -17,10 +17,10 @@
     $birthYear = isset($birthYearResult["results"]["bindings"][0]["birthYear"]["value"]) ? $birthYearResult["results"]["bindings"][0]["birthYear"]["value"] : "";
 
     $abstract = ActionEnum::NO_RESULT;
-    if (isset($abstractResult["results"]["bindings"][0]))
-        $abstract = $abstractResult["results"]["bindings"][0]["abstractFr"]["value"];
-    else if (isset($abstractResult["results"]["bindings"][1]))
-        $abstract = $abstractResult["results"]["bindings"][1]["abstractEn"]["value"];
+    if (isset($abstractResult[0]))
+        $abstract = isset($abstractResult[0]["abstractFr"]["value"]) ? $abstractResult[0]["abstractFr"]["value"] : $abstractResult[0]["abstractEn"]["value"];
+    else if (isset($abstractResult[1]))
+        $abstract =  isset($abstractResult[1]["abstractFr"]["value"]) ? $abstractResult[1]["abstractFr"]["value"] : $abstractResult[1]["abstractEn"]["value"];
 
 ?>
 <div id="main">

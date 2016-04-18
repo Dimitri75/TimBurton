@@ -68,6 +68,8 @@
         $imageResult = resultFromQueryForImages(getMoviePoster($label));
         if(strcmp($imageResult->Response, "True") == 0 && $imageResult->Poster != ActionEnum::NO_RESULT)
             $image = $imageResult->Poster;
+        else
+            $image = getRandomImage(ImageEnum::POSTER_FOLDER);
     }
 ?>
 
@@ -146,7 +148,7 @@
                             echo "</p>";
                         }
 
-                        if ($actors != ActionEnum::NO_RESULT) {
+                        if ($actors != ActionEnum::NO_RESULT && !empty($actors)) {
                             echo "<p>
                                 <b>Acteur(s) :</b><br/>";
 

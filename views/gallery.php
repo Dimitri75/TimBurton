@@ -40,13 +40,10 @@
                         $moviePosterQuery = getMoviePoster($label);
                         $searchResult = resultFromQueryForImages($moviePosterQuery);
 
-                        $image = getRandomImage(ImageEnum::POSTER_FOLDER);
-                        if (strcmp($searchResult->Response, "True") == 0){
-                            if (strcmp($searchResult->Poster, "N/A") != 0) {
-                                $image = $searchResult->Poster;
-                            }
-                        }
-
+                        if (strcmp($searchResult->Response, "True") == 0 && strcmp($searchResult->Poster, "N/A") != 0)
+                            $image = $searchResult->Poster;
+                        else
+                            $image = getRandomImage(ImageEnum::POSTER_FOLDER);
 
                         echo    "<li>
                                     <a href='/timburton/?action=show_film&id=".$data["wiki"]["value"]."'>
