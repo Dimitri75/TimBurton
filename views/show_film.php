@@ -103,11 +103,15 @@
                                 "</a>
                             </p>";
                         }
+
+                        if (strcmp($comment, $abstract) != 0){
+                            echo "
+                                <p class='resume'>
+                                    <b>A propos :</b><br/>
+                                    ".$comment."
+                                </p>";
+                        }
                     ?>
-                    <p class="resume">
-                        <b>A propos :</b><br/>
-                        <?php echo $comment; ?>
-                    </p>
                     <p class="resume">
                         <b>Synopsis :</b><br/>
                         <?php echo $abstract; ?>
