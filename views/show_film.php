@@ -50,12 +50,6 @@
                 $compositorName = $compositorName["results"]["bindings"][0]["label"]["value"];
         }
 
-//        if ($starring != ActionEnum::NO_RESULT) {
-//            $starringName = resultFromQuery(getLabel($starring));
-//            if (isset($starringName["results"]["bindings"][0]["label"]["value"]))
-//                $starringName = $starringName["results"]["bindings"][0]["label"]["value"];
-//        }
-
         $poster = "#";
         if ($poster != ActionEnum::NO_RESULT)
             $poster = resultFromQueryForImages(getMoviePoster($label))->Poster;
