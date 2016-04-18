@@ -33,8 +33,9 @@
             <img src="<?php echo $depiction; ?>"/>
             <figcaption>
                 <?php
-                    echo $birthName.
-                        " (".cleanDate($birthYear).")";
+                    echo removeStringInParentheses($birthName);
+                    if ($birthYear != ActionEnum::NO_RESULT)
+                        echo " (".cleanDate($birthYear).")";
                 ?>
             </figcaption>
         </figure>

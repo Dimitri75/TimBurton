@@ -1,7 +1,7 @@
 <?php
     function constructQuery($subject, $predicates){
-        if (filter_var($subject, FILTER_VALIDATE_URL))
-            $subject = "<".$subject.">";
+        //if (filter_var($subject, FILTER_VALIDATE_URL))
+        $subject = "<".$subject.">";
 
         return SparqlEnum::PREFIX .
             "SELECT *

@@ -16,4 +16,10 @@
         }
         return $date;
     }
+
+    function dump($var){
+        echo "<pre>";
+            echo is_array($var) ? print_r($var) : htmlspecialchars($var);
+        echo "</pre>";
+    }
 ?>
