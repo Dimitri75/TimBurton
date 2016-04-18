@@ -135,7 +135,7 @@
                                 "<p>
                                     <b>Producteur(s) :</b><br/>
                                      <a href='/timburton/?action=main&subject=" . $producer . "&role=" . ActionEnum::PRODUCER . "'>" .
-                                        $producerName .
+                                        removeStringInParentheses($producerName) .
                                     "</a>
                                 </p>";
                         }
