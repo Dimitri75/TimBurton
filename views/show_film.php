@@ -24,7 +24,7 @@
             $filmsFromProducer = resultFromQuery(getMoviesByProducer($producer, 5));
         }
 
-        $distributorName = ActionEnum::NO_RESULT;
+        $directorName = ActionEnum::NO_RESULT;
         if ($director != ActionEnum::NO_RESULT) {
             $directorName = resultFromQuery(getLabel($director));
             if (isset($directorName["results"]["bindings"][0]["label"]["value"]))
@@ -94,7 +94,7 @@
                 </td>
                 <td>
                     <?php
-                        if (!is_array($producerName) && $producerName != ActionEnum::NO_RESULT) {
+                        if (!is_array($directorName) && $directorName != ActionEnum::NO_RESULT) {
                             echo
                                 "<p>
                                 <b>Réalisateur :</b><br/>
