@@ -46,7 +46,7 @@
                             $image = getRandomImage(ImageEnum::POSTER_FOLDER);
 
                         echo    "<li>
-                                    <a href='/timburton/?action=show_film&id=".$data["wiki"]["value"]."'>
+                                    <a href='/timburton/?action=show_film&film=".$data["film"]["value"]."'>
                                         <figure class='tiny'>
                                             <img src='".$image."'/>
                                             <figcaption>".$label."</figcaption>

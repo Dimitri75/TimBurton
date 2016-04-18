@@ -1,10 +1,9 @@
 <?php
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
+    if (isset($_GET['film'])) {
+        $movie = $_GET['film'];
 
-        $film = resultFromQuery(getMovieByWikipediaID($id))["results"]["bindings"][0];
-        $actors = resultFromQuery(getActorsByWikipediaID($id, 5));
-        $producers = resultFromQuery(getProducersByWikipediaID($id, 5));
+        $film = resultFromQuery(getMovieDetails($movie))["results"]["bindings"][0];
+        $actors = resultFromQuery(getActorsByWikipediaID($movie, 5));
 
         $label = isset($film["label"]) ? removeStringInParentheses($film["label"]["value"]) : ActionEnum::NO_RESULT;
         $wikiLink = isset($film["wikiLink"]) ? $film["wikiLink"]["value"] : ActionEnum::NO_RESULT;
@@ -125,25 +124,13 @@
                             "<p>
                             <b>Film(s) du même réalisateur :</b><br/>";
                             foreach ($filmsFromDirector["results"]["bindings"] as $data) {
-                                echo "<a href='/timburton/?action=show_film&id=" . $data["wiki"]["value"] . "'>" .
+                                echo "<a href='/timburton/?action=show_film&film=" . $data["film"]["value"] . "'>" .
                                     removeStringInParentheses($data["label"]["value"]) .
                                     "</a><br/>";
                             }
                             echo "</p>";
                         }
 
-<<<<<<< HEAD
-                        if ($producers != ActionEnum::NO_RESULT && !empty($producers)) {
-                            echo "<p>
-                                    <b>Producteur(s) :</b><br/>";
-
-                            foreach ($producers as $producerC) {
-                                echo "<a href='/timburton/?action=main&subject=" . $producerC["producer"]["value"] . "&role=" . ActionEnum::PRODUCER . "'>" .
-                                    $producerC["producerName"]["value"] .
-                                    "</a><br/>";
-                            }
-                            echo "</p>";
-=======
                         if (!is_array($producerName) && strcmp($producerName, ActionEnum::NO_RESULT) != 0) {
                             echo
                                 "<p>
@@ -152,7 +139,6 @@
                                         removeStringInParentheses($producerName) .
                                     "</a>
                                 </p>";
->>>>>>> 2f9f22c5af2d552954988ce5ac20bed7b34ffccd
                         }
 
                         if (isset($filmsFromProducer)) {
@@ -160,7 +146,7 @@
                                 <p>
                                     <b>Film(s) du même producteur :</b><br/>";
                                     foreach ($filmsFromProducer["results"]["bindings"] as $data) {
-                                        echo "<a href='/timburton/?action=show_film&id=" . $data["wiki"]["value"] . "'>" .
+                                        echo "<a href='/timburton/?action=show_film&film=" . $data["film"]["value"] . "'>" .
                                                 removeStringInParentheses($data["label"]["value"]) .
                                             "</a><br/>";
                                     }

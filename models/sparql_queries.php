@@ -35,31 +35,31 @@
         return getSearchUrl($query);
     }
 
-    function getMovieByWikipediaID($id) {
+    function getMovieDetails($film) {
+        $film = "<".$film.">";
+
         $query = SparqlEnum::PREFIX.
-            "SELECT DISTINCT ?film ?label ?abstractEn ?abstractFr ?wikiLink ?producer ?released ?director ?distributor ?compositor ?actor ?commentFr ?commentEn
-            WHERE { 
-                { ?film a movie:film } UNION { ?film a dbo:Film } ?film dbo:wikiPageID ?wiki . 
-                ?film rdfs:label ?label . 
-                OPTIONAL { {?film dbp:released ?released} UNION {?film prop-fr:annéeDeSortie ?released} } .
+            "SELECT DISTINCT ?label ?abstractFr ?abstractEn ?commentFr ?commentEn ?wikiLink ?released ?director ?distributor ?compositor
+            WHERE {
+                ".$film." rdfs:label ?label .
+                OPTIONAL { {".$film." dbp:released ?released} UNION {".$film." prop-fr:annéeDeSortie ?released} } .
                 OPTIONAL {
-                    { ?film dbo:abstract ?abstractFr. FILTER(LANG(?abstractFr) = '" . SparqlEnum::LANG ."') }
+                    { ".$film." dbo:abstract ?abstractFr . FILTER(LANG(?abstractFr) = '" . SparqlEnum::LANG ."') }
                     UNION
-                    { ?film dbo:abstract ?abstractEn . FILTER(LANGMATCHES(LANG(?abstractEn), 'en')) }
+                    { ".$film." dbo:abstract ?abstractEn . FILTER(LANGMATCHES(LANG(?abstractEn), 'en')) }
                 } .
                 OPTIONAL {
-                    { ?film rdfs:comment ?commentFr . FILTER(LANG(?commentFr) = '" . SparqlEnum::LANG . "') }
+                    { ".$film." rdfs:comment ?commentFr . FILTER(LANG(?commentFr) = '" . SparqlEnum::LANG . "') }
                     UNION
-                    { ?film rdfs:comment ?commentEn . FILTER(LANGMATCHES(LANG(?commentEn), 'en')) }
+                    { ".$film." rdfs:comment ?commentEn . FILTER(LANGMATCHES(LANG(?commentEn), 'en')) }
                 } .
-                OPTIONAL { ?film foaf:isPrimaryTopicOf ?wikiLink } . 
-                OPTIONAL { ?film dbp:producer ?producer } . 
-                OPTIONAL { ?film dbo:director ?director } . 
-                OPTIONAL { ?film dbo:distributor ?distributor } . 
-                OPTIONAL { ?film dbo:musicComposer ?compositor } . 
-                OPTIONAL { ?film dbo:starring ?actor } . 
-                FILTER REGEX(?wiki, '" . $id ."') .
-                FILTER (lang(?label) = 'en') . 
+                OPTIONAL { ".$film." foaf:isPrimaryTopicOf ?wikiLink } .
+                OPTIONAL { ".$film." dbp:producer ?producer } .
+                OPTIONAL { ".$film." dbo:director ?director } .
+                OPTIONAL { ".$film." dbo:distributor ?distributor } .
+                OPTIONAL { ".$film." dbo:musicComposer ?compositor } .
+                OPTIONAL { ".$film." dbo:starring ?actor } .
+                FILTER (lang(?label) = 'en') .
             }
             LIMIT 1";
 
@@ -98,9 +98,9 @@
     function getProducersByWikipediaID($id, $limit){
         $query = SparqlEnum::PREFIX .
             "SELECT DISTINCT ?idProducer ?producer ?producerName 
-            WHERE { 
-                { ?film a movie:film } UNION { ?film a dbo:Film } 
-                ?film dbo:wikiPageID ?wiki . 
+            WHERE {
+                { ?film a movie:film } UNION { ?film a dbo:Film }
+                ?film dbo:wikiPageID ?wiki .
                 ?film rdfs:label ?label . 
                 OPTIONAL { ?film dbp:producer ?producer } . 
                 OPTIONAL { ?producer rdfs:label ?producerName } . 
@@ -113,16 +113,14 @@
     }
 
     function getMoviesByDirector($subject, $limit){
-
         $subject = removeUrl($subject);
 
         $query = SparqlEnum::PREFIX.
-            "SELECT DISTINCT ?film ?wiki ?label
+            "SELECT DISTINCT ?film ?label
             WHERE {
                 { ?film a movie:film } UNION { ?film a dbo:Film }
                 ?film dbo:director ?director .
                 ?film rdfs:label ?label .
-                ?film dbo:wikiPageID ?wiki .
                 FILTER REGEX(?director, '".$subject."') .
                 FILTER (lang(?label) = 'en') .
             }
@@ -135,12 +133,11 @@
         $subject = removeUrl($subject);
 
         $query = SparqlEnum::PREFIX.
-            "SELECT DISTINCT ?film ?wiki ?label
+            "SELECT DISTINCT ?film ?label
                 WHERE {
                     { ?film a movie:film } UNION { ?film a dbo:Film }
                     ?film dbp:producer ?producer .
                     ?film rdfs:label ?label .
-                    ?film dbo:wikiPageID ?wiki .
                     FILTER REGEX(?producer, '".$subject."') .
                     FILTER (lang(?label) = 'en') .
                 }
@@ -153,12 +150,11 @@
         $subject = removeUrl($subject);
 
         $query = SparqlEnum::PREFIX.
-            "SELECT DISTINCT ?film ?wiki ?label 
+            "SELECT DISTINCT ?film ?label
             WHERE { 
                 { ?film a movie:film } UNION { ?film a dbo:Film } 
                 ?film dbp:starring ?actor. 
-                ?film rdfs:label ?label . 
-                ?film dbo:wikiPageID ?wiki . 
+                ?film rdfs:label ?label .
                 FILTER REGEX(?actor, '" . $subject . "') . 
                 FILTER (lang(?label) = 'en') . 
             } 
