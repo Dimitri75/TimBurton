@@ -14,7 +14,7 @@
 
                 <?php if(!isset($_SESSION['login'])){ ?>
                     <a href="?main">
-                        <h2>Timothy Walter Button</h2>
+                        <h2>Timothy Walter Burton</h2>
                     </a>
 
                     <span>

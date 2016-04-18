@@ -66,10 +66,11 @@
         return getSearchUrl($query);
     }
 
-    function getActorsByWikipediaID($id, $limit) {
+    function getActorsByWikipediaID($id, $limit)
+    {
 
-    $query = SparqlEnum::PREFIX .
-        "SELECT DISTINCT ?idActor ?actor ?actorName
+        $query = SparqlEnum::PREFIX .
+            "SELECT DISTINCT ?idActor ?actor ?actorName
             WHERE {
                 { ?film a movie:film } UNION { ?film a dbo:Film } 
                 ?film dbo:wikiPageID ?wiki . 
@@ -89,10 +90,27 @@
                 FILTER (lang(?comment) = '" . SparqlEnum::LANG . "') . 
                 ?actor dbo:wikiPageID ?idActor .
                 } 
-                LIMIT ".$limit;
+                LIMIT " . $limit;
 
-    return getSearchUrl($query);
-}
+        return getSearchUrl($query);
+    }
+
+    function getProducersByWikipediaID($id, $limit){
+        $query = SparqlEnum::PREFIX .
+            "SELECT DISTINCT ?idProducer ?producer ?producerName 
+            WHERE { 
+                { ?film a movie:film } UNION { ?film a dbo:Film } 
+                ?film dbo:wikiPageID ?wiki . 
+                ?film rdfs:label ?label . 
+                OPTIONAL { ?film dbp:producer ?producer } . 
+                OPTIONAL { ?producer rdfs:label ?producerName } . 
+                ?producer dbo:wikiPageID ?idProducer .
+                FILTER REGEX(?wiki, '" . $id . "') . 
+                FILTER (LANG(?producerName) = 'en') .
+            } 
+            LIMIT " . $limit;
+        return getSearchUrl($query);
+    }
 
     function getMoviesByDirector($subject, $limit){
 
