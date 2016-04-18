@@ -19,6 +19,7 @@
             $producerName = resultFromQuery(getLabel($producer));
             if (isset($producerName["results"]["bindings"][0]["label"]["value"]))
                 $producerName = $producerName["results"]["bindings"][0]["label"]["value"];
+            $producerName = ActionEnum::NO_RESULT;
 
             $filmsFromProducer = resultFromQuery(getMoviesByProducer($producer, 5));
         }
@@ -28,6 +29,7 @@
             $directorName = resultFromQuery(getLabel($director));
             if (isset($directorName["results"]["bindings"][0]["label"]["value"]))
                 $directorName = $directorName["results"]["bindings"][0]["label"]["value"];
+            else $directorName = ActionEnum::NO_RESULT;
 
             $filmsFromDirector = resultFromQuery(getMoviesByDirector($director, 5));
         }
@@ -37,6 +39,7 @@
             $distributorName = resultFromQuery(getLabel($distributor));
             if (isset($distributorName["results"]["bindings"][0]["label"]["value"]))
                 $distributorName = $distributorName["results"]["bindings"][0]["label"]["value"];
+            else $distributorName = ActionEnum::NO_RESULT;
         }
 
         $compositorName = ActionEnum::NO_RESULT;
@@ -44,6 +47,7 @@
             $compositorName = resultFromQuery(getLabel($compositor));
             if (isset($compositorName["results"]["bindings"][0]["label"]["value"]))
                 $compositorName = $compositorName["results"]["bindings"][0]["label"]["value"];
+            else $compositorName = ActionEnum::NO_RESULT;
         }
 
         $abstract = ActionEnum::NO_RESULT;
