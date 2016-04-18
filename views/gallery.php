@@ -39,8 +39,7 @@
                         $moviePosterQuery = getMoviePoster($label);
                         $searchResult = resultFromQueryForImages($moviePosterQuery);
 
-                        $image = ImageEnum::IMAGE_FOLDER . "/" . getRandomImage();
-//                        $image = "#";
+                        $image = getRandomImage(ImageEnum::POSTER_FOLDER);
                         if (strcmp($searchResult->Response, "True") == 0){
                             if (strcmp($searchResult->Poster, "N/A") != 0) {
                                 $image = $searchResult->Poster;

@@ -18,8 +18,8 @@
 
     function getAbstract($subject) {
         $query = constructQuery($subject,
-            "dbo:abstract ?abstract .
-            FILTER(LANG(?abstract) = '".SparqlEnum::LANG."' || LANGMATCHES(LANG(?abstract), 'en'))");
+            "{ dbo:abstract ?abstractFr. FILTER(LANG(?abstractFr) = '" . SparqlEnum::LANG ."') } 
+                UNION { dbo:abstract ?abstractEn . FILTER(LANGMATCHES(LANG(?abstractEn), 'en')) }");
 
         return getSearchUrl($query);
     }
@@ -33,27 +33,24 @@
 
     function getMovieByWikipediaID($id) {
         $query = SparqlEnum::PREFIX.
-            "SELECT DISTINCT ?film ?label ?abstract ?wikiLink ?producer ?released ?director ?distributor ?compositor ?actor ?comment
-            WHERE {
-                { ?film a movie:film } UNION { ?film a dbo:Film }
-                ?film dbo:wikiPageID ?wiki .
-                ?film rdfs:label ?label .
-                OPTIONAL { {?film dbp:released ?released} UNION {?film prop-fr:annéeDeSortie ?released} } .
-                OPTIONAL { ?film dbo:abstract ?abstract } .
-                OPTIONAL { ?film foaf:isPrimaryTopicOf ?wikiLink } .
-                OPTIONAL { ?film dbp:producer ?producer } .
-                OPTIONAL { ?film dbo:director ?director } .
-                OPTIONAL { ?film dbo:distributor ?distributor } .
-                OPTIONAL { ?film dbo:musicComposer ?compositor } .
-                OPTIONAL { ?film dbo:starring ?actor } .
-                OPTIONAL { ?film rdfs:comment ?comment } .
-                FILTER REGEX(?wiki, '".$id."') .
-                FILTER (lang(?label) = 'en') .
-                FILTER (lang(?abstract) = '".SparqlEnum::LANG."') .
-                FILTER (lang(?comment) = '".SparqlEnum::LANG."') .
+            "SELECT DISTINCT ?film ?label ?abstractEn ?abstractFr ?wikiLink ?producer ?released ?director ?distributor ?compositor ?actor ?commentFr ?commentEn
+            WHERE { 
+                { ?film a movie:film } UNION { ?film a dbo:Film } ?film dbo:wikiPageID ?wiki . 
+                ?film rdfs:label ?label . 
+                OPTIONAL { {?film dbp:released ?released} UNION {?film prop-fr:annéeDeSortie ?released} } . 
+                OPTIONAL { { ?film dbo:abstract ?abstractFr. FILTER(LANG(?abstractFr) = '" . SparqlEnum::LANG ."') } UNION { ?film dbo:abstract ?abstractEn . FILTER(LANGMATCHES(LANG(?abstractEn), 'en')) } } . 
+                OPTIONAL { ?film foaf:isPrimaryTopicOf ?wikiLink } . 
+                OPTIONAL { ?film dbp:producer ?producer } . 
+                OPTIONAL { ?film dbo:director ?director } . 
+                OPTIONAL { ?film dbo:distributor ?distributor } . 
+                OPTIONAL { ?film dbo:musicComposer ?compositor } . 
+                OPTIONAL { ?film dbo:starring ?actor } . 
+                OPTIONAL { { ?film rdfs:comment ?commentFr . FILTER(LANG(?commentFr) = '" . SparqlEnum::LANG . "') } UNION { ?film rdfs:comment ?commentEn . FILTER(LANGMATCHES(LANG(?commentEn), 'en')) } } . 
+                FILTER REGEX(?wiki, '" . $id ."') . 
+                FILTER (lang(?label) = 'en') . 
             }
             LIMIT 1";
-
+        echo htmlspecialchars($query);
 //        FILTER(LANG(?abstract) = '".SparqlEnum::LANG."' || LANGMATCHES(LANG(?abstract), 'en')) .
 //        FILTER(LANG(?comment) = '".SparqlEnum::LANG."' || LANGMATCHES(LANG(?comment), 'en')) .
 

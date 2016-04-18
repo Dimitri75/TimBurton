@@ -3,6 +3,7 @@
 abstract class ImageEnum
 {
 
-    const IMAGE_FOLDER = "resources/posters";
+    const POSTER_FOLDER = "resources/posters";
+    const PROFILE_FOLDER = "resources/profile";
 
 }

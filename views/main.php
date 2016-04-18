@@ -12,7 +12,7 @@
     $birthNameResult = resultFromQuery(getLabel($subject));
     $birthYearResult = resultFromQuery(getBirthYear($subject));
 
-    $depiction = isset($depictionResult["results"]["bindings"][0]["depiction"]["value"]) ? $depictionResult["results"]["bindings"][0]["depiction"]["value"] : "#";
+    $depiction = isset($depictionResult["results"]["bindings"][0]["depiction"]["value"]) ? $depictionResult["results"]["bindings"][0]["depiction"]["value"] : getRandomImage(ImageEnum::PROFILE_FOLDER);
     $birthName = isset($birthNameResult["results"]["bindings"][0]["label"]["value"]) ? $birthNameResult["results"]["bindings"][0]["label"]["value"] : "";
     $birthYear = isset($birthYearResult["results"]["bindings"][0]["birthYear"]["value"]) ? $birthYearResult["results"]["bindings"][0]["birthYear"]["value"] : "";
     $abstract = isset($abstractResult["results"]["bindings"][0]["abstract"]["value"]) ? $abstractResult["results"]["bindings"][0]["abstract"]["value"] : "";
@@ -24,6 +24,7 @@
         <br/><br/>
 
         <figure class="medium">
+
             <img src="<?php echo $depiction; ?>"/>
             <figcaption>
                 <?php
