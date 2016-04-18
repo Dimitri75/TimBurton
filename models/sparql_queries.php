@@ -144,8 +144,6 @@
     }
 
     function getMoviesByProducers($subject, $limit){
-        $subject = removeUrl($subject);
-
         $filter = "";
         if(is_array($subject) && !empty($subject)) {
             $object = new ArrayObject($subject);

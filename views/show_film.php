@@ -142,7 +142,7 @@
                             $filmsFromProducers = $filmsFromProducers["results"]["bindings"];
                             echo "
                                 <p>
-                                    <b>Film(s) du même producteur :</b><br/>";
+                                    <b>Film(s) des mêmes producteurs :</b><br/>";
                                     foreach ($filmsFromProducers as $data) {
                                         echo "<a href='/timburton/?action=show_film&film=" . $data["film"]["value"] . "'>" .
                                                 removeStringInParentheses($data["label"]["value"]) .
