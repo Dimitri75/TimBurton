@@ -110,6 +110,16 @@ figcaption {
     opacity: 0.8;
 }
 
+#main section a {
+    transition : 0.5s;
+    color : crimson;
+}
+
+#main section a:hover {
+    color : white;
+    text-decoration: none;
+}
+
 #main section.gallery{
     display : inline-block;
 }
