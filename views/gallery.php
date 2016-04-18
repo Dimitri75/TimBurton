@@ -34,14 +34,19 @@
         <br/><br/>
             <ul>
                 <?php
-                    foreach($movies["results"]["bindings"] as $data){
+                    foreach($movies["results"]["bindings"] as $data) {
                         $label = removeStringInParentheses($data["label"]["value"]);
                         $moviePosterQuery = getMoviePoster($label);
                         $searchResult = resultFromQueryForImages($moviePosterQuery);
 
-                        $image = "#";
-                        if(strcmp($searchResult->Response, "True") == 0)
-                            $image = $searchResult->Poster;
+                        $image = ImageEnum::IMAGE_FOLDER . "/" . getRandomImage();
+//                        $image = "#";
+                        if (strcmp($searchResult->Response, "True") == 0){
+                            if (strcmp($searchResult->Poster, "N/A") != 0) {
+                                $image = $searchResult->Poster;
+                            }
+                        }
+
 
                         echo    "<li>
                                     <a href='/timburton/?action=show_film&id=".$data["wiki"]["value"]."'>

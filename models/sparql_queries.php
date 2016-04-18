@@ -63,7 +63,7 @@
     function getActorsByWikipediaID($id) {
 
     $query = SparqlEnum::PREFIX .
-        "SELECT DISTINCT ?idActor ?actor
+        "SELECT DISTINCT ?idActor ?actor ?actorName
             WHERE {
                 { ?film a movie:film } UNION { ?film a dbo:Film } 
                 ?film dbo:wikiPageID ?wiki . 
@@ -75,8 +75,10 @@
                 OPTIONAL { ?film dbo:musicComposer ?compositor } . 
                 OPTIONAL { ?film dbo:starring ?actor } . 
                 OPTIONAL { ?film rdfs:comment ?comment } . 
+                ?actor rdfs:label ?actorName .
                 FILTER REGEX(?wiki, '" . $id . "') . 
                 FILTER (lang(?label) = 'en') . 
+                FILTER (lang(?actorName) = 'en') .
                 FILTER (lang(?abstract) = '" . SparqlEnum::LANG . "') . 
                 FILTER (lang(?comment) = '" . SparqlEnum::LANG . "') . 
                 ?actor dbo:wikiPageID ?idActor .
