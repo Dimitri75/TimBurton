@@ -90,7 +90,7 @@
                             echo
                                 "<p>
                                 <b>Réalisateur :</b><br/>
-                                <a href='/timburton/?action=main&subject=" . $director . "&role=" . ActionEnum::DIRECTOR . "'>" .
+                                <a href='/timburton/?action=main&subject=" . urlencode($director) . "&role=" . urlencode(ActionEnum::DIRECTOR) . "'>" .
                                 $directorName .
                                 "</a>
                             </p>";
@@ -114,8 +114,8 @@
                             "<p>
                             <b>Film(s) du même réalisateur :</b><br/>";
                             foreach ($filmsFromDirector["results"]["bindings"] as $data) {
-                                echo "<a href='/timburton/?action=show_film&film=" . $data["film"]["value"] . "'>" .
-                                    removeStringInParentheses($data["label"]["value"]) .
+                                echo "<a href='/timburton/?action=show_film&film=" . urlencode($data["film"]["value"]) . "'>" .
+                                        removeStringInParentheses($data["label"]["value"]) .
                                     "</a><br/>";
                             }
                             echo "</p>";
@@ -129,7 +129,7 @@
                                     <b>Producteur(s) :</b><br/>";
                                     foreach($producers as $prod){
                                         $listProducers[] = removeUrl($prod["producer"]["value"]);
-                                        echo "<a href='/timburton/?action=main&subject=" . $prod["producer"]["value"] . "&role=" . ActionEnum::PRODUCER . "'>" .
+                                        echo "<a href='/timburton/?action=main&subject=" . urlencode($prod["producer"]["value"]) . "&role=" . urlencode(ActionEnum::PRODUCER) . "'>" .
                                             removeStringInParentheses($prod["producerName"]["value"]) .
                                         "</a><br/>";
                                     }
@@ -144,7 +144,7 @@
                                 <p>
                                     <b>Film(s) des mêmes producteurs :</b><br/>";
                                     foreach ($filmsFromProducers as $data) {
-                                        echo "<a href='/timburton/?action=show_film&film=" . $data["film"]["value"] . "'>" .
+                                        echo "<a href='/timburton/?action=show_film&film=" . urlencode($data["film"]["value"]) . "'>" .
                                                 removeStringInParentheses($data["label"]["value"]) .
                                             "</a><br/>";
                                     }
@@ -156,7 +156,7 @@
                                 <b>Acteur(s) :</b><br/>";
 
                             foreach ($actors as $actor) {
-                                echo "<a href='/timburton/?action=main&subject=" . $actor["actor"]["value"] . "&role=" . ActionEnum::ACTOR . "'>" .
+                                echo "<a href='/timburton/?action=main&subject=" . urlencode($actor["actor"]["value"]) . "&role=" . urlencode(ActionEnum::ACTOR) . "'>" .
                                         removeStringInParentheses($actor["actorName"]["value"]) .
                                     "</a><br/>";
                             }

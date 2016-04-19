@@ -42,7 +42,7 @@
         <p>
             <?php
                 echo
-                    "<a href='/timburton/?action=gallery&subject=".$subject."&role=".$role."'>
+                    "<a href='/timburton/?action=gallery&subject=".urlencode($subject)."&role=".urlencode($role)."'>
                         <b>Filmographie</b>
                     </a>";
             ?>

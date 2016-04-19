@@ -115,8 +115,8 @@
         $query = SparqlEnum::PREFIX.
             "SELECT DISTINCT ?film ?label
                 WHERE {
-                    { ?film a movie:film } UNION { ?film a dbo:Film }
-                    ?film dbp:producer ?producer .
+                    { ?film a movie:film } UNION { ?film a dbo:Film } UNION { ?film a :Film } .
+                    { ?film dbp:producer ?producer } UNION { ?film dbo:producer ?producer } .
                     ?film rdfs:label ?label .
                     FILTER REGEX(?producer, '".$subject."') .
                     FILTER (lang(?label) = 'en') .
@@ -162,7 +162,7 @@
             "SELECT DISTINCT ?film ?label
                 WHERE {
                     { ?film a movie:film } UNION { ?film a dbo:Film }
-                    ?film dbp:producer ?producer .
+                    { ?film dbp:producer ?producer } UNION { ?film dbo:producer ?producer } .
                     ?film rdfs:label ?label .
                     ".$filter."
                     FILTER (lang(?label) = 'en') .

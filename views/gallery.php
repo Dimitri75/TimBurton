@@ -23,8 +23,7 @@
     }
 
     $label = resultFromQuery(getLabel($subject));
-    $label = isset($label["results"]["bindings"][0]["label"]["value"]) ? " de ".$label["results"]["bindings"][0]["label"]["value"] : "";
-
+    $label = isset($label["results"]["bindings"][0]["label"]["value"]) ? " de ".removeStringInParentheses($label["results"]["bindings"][0]["label"]["value"]) : "";
 ?>
 
 <div id="main">
@@ -46,7 +45,7 @@
                             $image = getRandomImage(ImageEnum::POSTER_FOLDER);
 
                         echo    "<li>
-                                    <a href='/timburton/?action=show_film&film=".$data["film"]["value"]."'>
+                                    <a href='/timburton/?action=show_film&film=".urlencode($data["film"]["value"])."'>
                                         <figure class='tiny'>
                                             <img src='".$image."'/>
                                             <figcaption>".$label."</figcaption>
